@@ -27,6 +27,6 @@ class LearnedFromEducationCardController extends Controller
     }
     
     public function destroy($id) {
-        // Silme işlemi
+        // Silme işlemi 
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class AdminIndexController extends Controller
 {
     public function index() {
-        // Listeleme işlemleri
+        // Listeleme işlemleri 
     }
     
 
