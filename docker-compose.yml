@@ -1,0 +1,64 @@
+version: '3.8' # Docker Compose'un sürümü
+
+services:
+  # app (PHP): Laravel uygulamasını çalıştırır.
+  app: # Laravel için PHP uygulaması
+    build:
+      context: . # Dockerfile bu dizinde bulunuyor
+    container_name: cv-blog # PHP container'ının adı
+    working_dir: /var/www # Laravel projesinin çalışacağı dizin
+    volumes:
+      - .:/var/www # Laravel dosyalarını container içindeki /var/www dizinine bağlar
+      - ./php.ini:/usr/local/etc/php/php.ini # PHP ayar dosyasını container içine bağlar
+    networks:
+      - cv-blog-network # PHP container'ının bağlanacağı ağ
+
+  # webserver (Nginx): Laravel’e gelen HTTP isteklerini işler.
+  webserver: # Laravel için Nginx web sunucusu 
+    image: nginx:alpine # Hafif bir Nginx imajı kullanıyoruz
+    container_name: cv-blog-webserver # Web sunucusu container'ının adı
+    restart: unless-stopped # Hata durumunda container'ı yeniden başlatır
+    volumes:
+      - .:/var/www # Laravel dosyalarını container içindeki web dizinine bağlar
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf # Nginx yapılandırma dosyasını bağlar
+    ports:
+      - "8080:80" # Host'taki 8080 portunu container'ın 80 portuna yönlendirir
+    networks:
+      - cv-blog-network # Nginx'in bağlanacağı ağ
+
+  # db (MySQL): Veritabanı hizmetini sağlar.
+  db: # MySQL veritabanı hizmeti
+    image: mysql:8.0 # MySQL'in 8.0 sürümünü kullanıyoruz
+    container_name: cv-blog-db # MySQL container'ının adı
+    restart: unless-stopped # Hata durumunda container'ı yeniden başlatır
+    environment: # MySQL bağlantı ayarları
+      MYSQL_ROOT_PASSWORD: root # Root kullanıcısı için şifre
+      MYSQL_DATABASE: laravel_db # Varsayılan veritabanı adı
+      MYSQL_USER: laravel_user # Laravel kullanıcısı
+      MYSQL_PASSWORD: L4r@v3l! # Laravel kullanıcısının şifresi
+    volumes:
+      - db_data:/var/lib/mysql # MySQL verilerini saklamak için volume kullanılır
+    ports:
+      - "3306:3306" # Host'taki 3306 portunu container'ın 3306 portuna yönlendirir
+    networks:
+      - cv-blog-network # MySQL container'ının bağlanacağı ağ
+
+  # phpmyadmin: Veritabanını yönetmek için bir web arayüzü sunar.
+  phpmyadmin: # MySQL yönetimi için phpMyAdmin
+    image: phpmyadmin:latest # phpMyAdmin'in en son sürümünü kullanıyoruz
+    container_name: cv-blog-phpmyadmin # phpMyAdmin container'ının adı
+    restart: unless-stopped # Hata durumunda container'ı yeniden başlatır
+    environment: # phpMyAdmin yapılandırması
+      PMA_HOST: cv-blog-db # phpMyAdmin'in bağlanacağı MySQL container adı
+      PMA_USER: root # phpMyAdmin kullanıcı adı
+      PMA_PASSWORD: root # phpMyAdmin şifresi
+    ports:
+      - "8081:80" # Host'taki 8081 portunu container'ın 80 portuna yönlendirir
+    networks:
+      - cv-blog-network # phpMyAdmin'in bağlanacağı ağ
+
+networks:
+  cv-blog-network: # Laravel, MySQL ve phpMyAdmin container'larının iletişim kuracağı ağ
+
+volumes:
+  db_data: # MySQL verilerini saklamak için volume tanımı
