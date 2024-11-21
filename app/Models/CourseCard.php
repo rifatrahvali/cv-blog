@@ -10,7 +10,7 @@ class CourseCard extends Model
 {
     use HasFactory;
 
-    // Toplu atamaya izin verilen alanlar.
+    // Toplu atamaya izin verilen alanlar
     protected $fillable = [
         'course_name',            // Kursun adı
         'institution',            // Kursun verildiği kurum
