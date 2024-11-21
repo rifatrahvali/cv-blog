@@ -12,12 +12,21 @@ use App\Http\Controllers\LearnedFromExperiencesCardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileCardController;
 
+Route::get(
+    '/',
+    function(){
+        return view('frontend.welcome');
+    }
+);
 Route::prefix('admin')->group(function () {
 
     // Admin Index Routes
     Route::get(
         '/',
-        [AdminIndexController::class, 'index']
+        // [AdminIndexController::class, 'index']
+        function(){
+            return view('admin.index');
+        }
     )
         ->name('admin.index'); // Admin ana sayfa
 
