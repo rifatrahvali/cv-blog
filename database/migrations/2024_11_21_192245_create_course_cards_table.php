@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('certificate_cards', function (Blueprint $table) {
+        Schema::create('course_cards', function (Blueprint $table) {
             $table->id(); // Benzersiz ID
-            $table->string('certificate_name'); // Sertifika adı
+            $table->string('course_name'); // Kurs adı
             $table->string('institution'); // Kursun verildiği kurum
-            $table->string('field'); // Kursun alanı
+            $table->json('additional_achievements')->nullable(); // Yan kazanımlar (etiketler, JSON formatında)
             $table->timestamps(); // created_at ve updated_at
         });
     }
