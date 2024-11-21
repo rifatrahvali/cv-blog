@@ -1,8 +1,16 @@
 <?php
 
-use App\Http\Controllers\ProfileCardController;
-use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AboutCardController;
+use App\Http\Controllers\AdminIndexController;
+use App\Http\Controllers\CertificateCardController;
+use App\Http\Controllers\CourseCardController;
+use App\Http\Controllers\EducationCardController;
+use App\Http\Controllers\ExperienceCardController;
+use App\Http\Controllers\LearnedFromEducationCardController;
+use App\Http\Controllers\LearnedFromExperiencesCardController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileCardController;
 
 Route::prefix('admin')->group(function () {
 
