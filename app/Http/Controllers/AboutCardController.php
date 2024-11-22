@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class AboutCardController extends Controller
 {
     public function index() {
-        // Listeleme işlemleri
+        // Listeleme işlemleri.
     }
     
     public function create() {
