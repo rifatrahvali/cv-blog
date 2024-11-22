@@ -2,31 +2,62 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AboutCard;
 use Illuminate\Http\Request;
 
 class AboutCardController extends Controller
 {
-    public function index() {
-        // Listeleme işlemleri.
+    // Listeleme
+    public function index()
+    {
+        $aboutCards = AboutCard::all();
+        return view('admin.about-card.index', compact('aboutCards'));
     }
-    
-    public function create() {
-        // Form gösterme işlemi
+
+    // Ekleme Formu
+    public function create()
+    {
+        return view('admin.about-card.create-edit', ['aboutCard' => null]);
     }
-    
-    public function store(Request $request) {
-        // Yeni kayıt ekleme işlemi
+
+    // Yeni Kayıt
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'description' => 'required|string|max:1000', // Açıklama zorunlu ve 1000 karakter ile sınırlı
+        ]);
+
+        AboutCard::create($validated);
+
+        return redirect()->route('about-card.index')->with('success', 'Hakkımda Kartı başarıyla eklendi!');
     }
-    
-    public function edit($id) {
-        // Düzenleme formu gösterme
+
+    // Düzenleme Formu
+    public function edit($id)
+    {
+        $aboutCard = AboutCard::findOrFail($id);
+        return view('admin.about-card.create-edit', compact('aboutCard'));
     }
-    
-    public function update(Request $request, $id) {
-        // Güncelleme işlemi
+
+    // Güncelleme
+    public function update(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'description' => 'required|string|max:1000',
+        ]);
+
+        $aboutCard = AboutCard::findOrFail($id);
+        $aboutCard->update($validated);
+
+        return redirect()->route('about-card.index')->with('success', 'Hakkımda Kartı başarıyla güncellendi!');
     }
-    
-    public function destroy($id) {
-        // Silme işlemi 
+
+    // Silme
+    public function destroy($id)
+    {
+        $aboutCard = AboutCard::findOrFail($id);
+        $aboutCard->delete();
+
+        return redirect()->route('about-card.index')->with('success', 'Hakkımda Kartı başarıyla silindi!');
     }
 }

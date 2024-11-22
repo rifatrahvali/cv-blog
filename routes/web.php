@@ -14,7 +14,7 @@ use App\Http\Controllers\ProfileCardController;
 
 Route::get(
     '/',
-    function(){
+    function () {
         return view('frontend.welcome');
     }
 );
@@ -24,61 +24,34 @@ Route::prefix('admin')->group(function () {
     Route::get(
         '/',
         // [AdminIndexController::class, 'index']
-        function(){
+        function () {
             return view('admin.index');
         }
     )
         ->name('admin.index'); // Admin ana sayfa
 
     // Profile Card Routes
-   // Listeleme
-   Route::get('/profile-card', [ProfileCardController::class, 'index'])->name('profile-card.index');
+    // Listeleme
+    Route::get('/profile-card', [ProfileCardController::class, 'index'])->name('profile-card.index');
 
-   // Ekleme ve Güncelleme Formu
-   Route::get('/profile-card/create', [ProfileCardController::class, 'create'])->name('profile-card.create');
-   Route::get('/profile-card/{id}/edit', [ProfileCardController::class, 'edit'])->name('profile-card.edit');
+    // Ekleme ve Güncelleme Formu
+    Route::get('/profile-card/create', [ProfileCardController::class, 'create'])->name('profile-card.create');
+    Route::get('/profile-card/{id}/edit', [ProfileCardController::class, 'edit'])->name('profile-card.edit');
 
-   // Kayıt ve Güncelleme
-   Route::post('/profile-card', [ProfileCardController::class, 'store'])->name('profile-card.store');
-   Route::put('/profile-card/{id}', [ProfileCardController::class, 'update'])->name('profile-card.update');
+    // Kayıt ve Güncelleme
+    Route::post('/profile-card', [ProfileCardController::class, 'store'])->name('profile-card.store');
+    Route::put('/profile-card/{id}', [ProfileCardController::class, 'update'])->name('profile-card.update');
 
-   // Silme
-   Route::delete('/profile-card/{id}', [ProfileCardController::class, 'destroy'])->name('profile-card.destroy');
+    // Silme
+    Route::delete('/profile-card/{id}', [ProfileCardController::class, 'destroy'])->name('profile-card.destroy');
 
     // About Card Routes
-    Route::get(
-        '/about-card',
-        [AboutCardController::class, 'index']
-    )
-        ->name('AboutCard.index');
-
-    Route::get(
-        '/about-card/create',
-        [AboutCardController::class, 'create']
-    )
-        ->name('AboutCard.create');
-
-    Route::post(
-        '/about-card',
-        [AboutCardController::class, 'store']
-    )
-        ->name('AboutCard.store');
-
-    Route::get(
-        '/about-card/{id}/edit',
-        [AboutCardController::class, 'edit']
-    )
-        ->name('AboutCard.edit');
-    Route::put(
-        '/about-card/{id}',
-        [AboutCardController::class, 'update']
-    )
-        ->name('AboutCard.update');
-    Route::delete(
-        '/about-card/{id}',
-        [AboutCardController::class, 'destroy']
-    )
-        ->name('AboutCard.destroy');
+    Route::get('/about-card', [AboutCardController::class, 'index'])->name('about-card.index'); // Listeleme
+    Route::get('/about-card/create', [AboutCardController::class, 'create'])->name('about-card.create'); // Yeni Ekleme Formu
+    Route::post('/about-card', [AboutCardController::class, 'store'])->name('about-card.store'); // Yeni Kayıt
+    Route::get('/about-card/{id}/edit', [AboutCardController::class, 'edit'])->name('about-card.edit'); // Düzenleme Formu
+    Route::put('/about-card/{id}', [AboutCardController::class, 'update'])->name('about-card.update'); // Güncelleme
+    Route::delete('/about-card/{id}', [AboutCardController::class, 'destroy'])->name('about-card.destroy'); // Silme
 
     // Experience Card Routes
     Route::get(
