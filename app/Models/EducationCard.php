@@ -12,11 +12,12 @@ class EducationCard extends Model
 
     // Toplu atamaya izin verilen alanlar.
     protected $fillable = [
-        'city',         // Eğitimin gerçekleştiği şehir
-        'school_name',  // Okulun adı
-        'department',   // Bölüm adı
-        'start_year',   // Eğitimin başlangıç yılı
-        'end_year'      // Eğitimin bitiş yılı
+        'section',      // Eğitim derecesi (örneğin, Lisans, Yüksek Lisans, Lise).
+        'city',         // Şehir.
+        'school_name',  // Okul adı.
+        'department',   // Bölüm adı.
+        'start_year',   // Başlangıç yılı.
+        'end_year',     // Bitiş yılı.
     ];
 
     // Bu ilişki, eğitime ait birden fazla öğrenim kaydını temsil eder.
@@ -26,3 +27,4 @@ class EducationCard extends Model
         // hasMany: Bu eğitim birden fazla öğrenim kaydıyla ilişkilendirilebilir.
     }
 }
+

@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('education_cards', function (Blueprint $table) {
             $table->id(); // Benzersiz ID
-            $table->string('section'); // Eğitim bölümü
+            $table->string('section'); // Eğitim derecesi
             $table->string('city'); // Şehir adı
             $table->string('school_name'); // Okul adı
             $table->string('department'); // Bölüm adı
             $table->date('start_year'); // Başlangıç yılı
             $table->date('end_year')->nullable(); // Bitiş yılı (opsiyonel)
-            $table->timestamps(); // created_at ve updated_at
+            $table->timestamps(); // created_at ve updated_at.
         });
     }
 
