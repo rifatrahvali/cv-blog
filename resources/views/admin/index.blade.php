@@ -10,5 +10,6 @@
     <a href="{{ route('profile-card.index') }}">Profil Kartı</a> | 
     <a href="{{ route('about-card.index') }}">Hakkımda Kartı</a> | 
     <a href="{{ route('experience-card.index') }}">Şirket Deneyimi Kartı</a>
+    <a href="{{ route('learned-from-experiences-card.index') }}">Şirket içi iş Deneyimi Kartı</a>
 </body>
 </html>

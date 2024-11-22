@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 // LearnedFromExperiencesCard modeli, iş deneyimlerinden öğrenilen becerileri temsil eder.
+
 class LearnedFromExperiencesCard extends Model
 {
     use HasFactory;
@@ -18,15 +19,16 @@ class LearnedFromExperiencesCard extends Model
         'work_tags'           // İşle ilgili etiketler (JSON formatında saklanır)
     ];
 
-    // work_tags alanını JSON formatında okuma/yazma olarak belirler.
+
+    // JSON verisini array olarak döndürmek için casting
     protected $casts = [
-        'work_tags' => 'array',
+        'work_tags' => 'array', // JSON formatında saklanan alanı array olarak okuyalım.
     ];
 
-    // Bu ilişki, öğrenim kaydının hangi deneyime ait olduğunu belirtir.
+    // İlgili deneyim kartıyla ilişki
     public function experience()
     {
-        return $this->belongsTo(ExperienceCard::class, 'experience_card_id');
         // belongsTo: Bu öğrenim kaydı yalnızca bir deneyime ait olabilir.
+        return $this->belongsTo(ExperienceCard::class, 'experience_card_id');
     }
 }
