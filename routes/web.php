@@ -31,36 +31,19 @@ Route::prefix('admin')->group(function () {
         ->name('admin.index'); // Admin ana sayfa
 
     // Profile Card Routes
-    Route::get(
-        '/profile-card',
-        [ProfileCardController::class, 'index']
-    )
-        ->name('ProfileCard.index'); // Listeleme
-    Route::get(
-        '/profile-card/create',
-        [ProfileCardController::class, 'create']
-    )
-        ->name('ProfileCard.create'); // Form göster
-    Route::post(
-        '/profile-card',
-        [ProfileCardController::class, 'store']
-    )
-        ->name('ProfileCard.store'); // Yeni kayıt
-    Route::get(
-        '/profile-card/{id}/edit',
-        [ProfileCardController::class, 'edit']
-    )
-        ->name('ProfileCard.edit'); // Düzenleme formu
-    Route::put(
-        '/profile-card/{id}',
-        [ProfileCardController::class, 'update']
-    )
-        ->name('ProfileCard.update'); // Güncelleme
-    Route::delete(
-        '/profile-card/{id}',
-        [ProfileCardController::class, 'destroy']
-    )
-        ->name('ProfileCard.destroy'); // Silme
+   // Listeleme
+   Route::get('/profile-card', [ProfileCardController::class, 'index'])->name('profile-card.index');
+
+   // Ekleme ve Güncelleme Formu
+   Route::get('/profile-card/create', [ProfileCardController::class, 'create'])->name('profile-card.create');
+   Route::get('/profile-card/{id}/edit', [ProfileCardController::class, 'edit'])->name('profile-card.edit');
+
+   // Kayıt ve Güncelleme
+   Route::post('/profile-card', [ProfileCardController::class, 'store'])->name('profile-card.store');
+   Route::put('/profile-card/{id}', [ProfileCardController::class, 'update'])->name('profile-card.update');
+
+   // Silme
+   Route::delete('/profile-card/{id}', [ProfileCardController::class, 'destroy'])->name('profile-card.destroy');
 
     // About Card Routes
     Route::get(

@@ -20,10 +20,10 @@ class ProfileCard extends Model
         'name',          // Kullanıcının adı ve soyadı
         'title',         // Kullanıcının unvanı
         'username',      // Kullanıcının genel kullanıcı adı
-        'github',        // Kullanıcının GitHub profil bağlantısı
-        'instagram',     // Kullanıcının Instagram profil bağlantısı
-        'youtube',       // Kullanıcının YouTube profil bağlantısı
-        'x',             // Kullanıcının X (eski adıyla Twitter) profil bağlantısı
-        'linkedin'       // Kullanıcının LinkedIn profil bağlantısı
+        'github_link',        // Kullanıcının GitHub profil bağlantısı
+        'instagram_link',     // Kullanıcının Instagram profil bağlantısı
+        'youtube_link',       // Kullanıcının YouTube profil bağlantısı
+        'x_link',             // Kullanıcının X (eski adıyla Twitter) profil bağlantısı
+        'linkedin_link'       // Kullanıcının LinkedIn profil bağlantısı
     ];
 }
