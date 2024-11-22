@@ -47,11 +47,6 @@
     <label for="work_tags">Etiketler (virgülle ayır):</label>
     <input type="text" id="work_tags" name="work_tags"
         value="{{ old('work_tags', is_array($learnedFromExperiencesCard->work_tags ?? null) ? implode(',', $learnedFromExperiencesCard->work_tags) : '') }}">
-    <!-- <div>
-        <label for="work_tags">Etiketler (virgülle ayır):</label>
-        <input type="text" id="work_tags" name="work_tags"
-            value="{{ old('work_tags', $learnedFromExperiencesCard ? implode(',', $learnedFromExperiencesCard->work_tags) : '') }}">
-    </div> -->
 
     <button type="submit">{{ $learnedFromExperiencesCard ? 'Güncelle' : 'Kaydet' }}</button> {{-- Gönder butonu --}}
 </form>
