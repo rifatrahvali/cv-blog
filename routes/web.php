@@ -121,36 +121,12 @@ Route::prefix('admin')->group(function () {
     Route::delete('/course-card/{id}', [CourseCardController::class, 'destroy'])->name('course-card.destroy'); // Silme rotası
 
     // Certificate Card Routes
-    Route::get(
-        '/certificate-card',
-        [CertificateCardController::class, 'index']
-    )
-        ->name('CertificateCard.index');
-    Route::get(
-        '/certificate-card/create',
-        [CertificateCardController::class, 'create']
-    )
-        ->name('CertificateCard.create');
-    Route::post(
-        '/certificate-card',
-        [CertificateCardController::class, 'store']
-    )
-        ->name('CertificateCard.store');
-    Route::get(
-        '/certificate-card/{id}/edit',
-        [CertificateCardController::class, 'edit']
-    )
-        ->name('CertificateCard.edit');
-    Route::put(
-        '/certificate-card/{id}',
-        [CertificateCardController::class, 'update']
-    )
-        ->name('CertificateCard.update');
-    Route::delete(
-        '/certificate-card/{id}',
-        [CertificateCardController::class, 'destroy']
-    )
-        ->name('CertificateCard.destroy');
+    Route::get('/certificate-card', [CertificateCardController::class, 'index'])->name('certificate-card.index'); // Listeleme rotası
+    Route::get('/certificate-card/create', [CertificateCardController::class, 'create'])->name('certificate-card.create'); // Yeni kayıt ekleme formu rotası
+    Route::post('/certificate-card', [CertificateCardController::class, 'store'])->name('certificate-card.store'); // Yeni kayıt ekleme rotası
+    Route::get('/certificate-card/{id}/edit', [CertificateCardController::class, 'edit'])->name('certificate-card.edit'); // Düzenleme formu rotası
+    Route::put('/certificate-card/{id}', [CertificateCardController::class, 'update'])->name('certificate-card.update'); // Güncelleme rotası
+    Route::delete('/certificate-card/{id}', [CertificateCardController::class, 'destroy'])->name('certificate-card.destroy'); // Silme rotası
 });
 
 

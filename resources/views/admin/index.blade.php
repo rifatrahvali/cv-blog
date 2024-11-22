@@ -14,5 +14,6 @@
     <a href="{{ route('education-card.index') }}">Eğitim Kartı</a> <br>
     <a href="{{ route('learned-from-education-card.index') }}">Eğitim'den öğrenimlerin Kartı</a> <br>
     <a href="{{ route('course-card.index') }}">Kursların Kartı</a> <br>
+    <a href="{{ route('certificate-card.index') }}">Sertifika Kartı</a> <br>
 </body>
 </html>
