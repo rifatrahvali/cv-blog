@@ -5,25 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-// LearnedFromEducationCard modeli, eğitimden öğrenilen becerileri temsil eder.
 class LearnedFromEducationCard extends Model
 {
     use HasFactory;
 
     // Toplu atamaya izin verilen alanlar.
     protected $fillable = [
-        'education_card_id',    // Bu öğrenim kaydının hangi eğitime ait olduğunu belirtir.
-        'degree',               // Eğitim derecesi (ör. Lisans, Lise)
-        'main_achievement',     // Eğitimin temel kazanımı
-        'secondary_achievements' // Yan kazanımlar (JSON formatında saklanır)
+        'education_card_id', // Bu kaydın ilişkili olduğu education_card ID.
+        'degree', // Eğitim derecesi (ör. Lisans, Lise).
+        'main_achievement', // Temel kazanım.
+        'secondary_achievements' // Yan kazanımlar (JSON formatında).
     ];
 
-    // secondary_achievements alanını JSON formatında okuma/yazma olarak belirler.
+    // secondary_achievements alanını JSON olarak işle.
     protected $casts = [
         'secondary_achievements' => 'array',
     ];
 
-    // Bu ilişki, öğrenim kaydının hangi eğitime ait olduğunu belirtir.
+    // İlişki: Bu kaydın ait olduğu EducationCard.
     public function education()
     {
         return $this->belongsTo(EducationCard::class, 'education_card_id');
