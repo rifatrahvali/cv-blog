@@ -1,5 +1,6 @@
 <h1>Profile Cards</h1>
-<a href="{{ route('profile-card.create') }}">Yeni Ekle</a>
+<a href="{{ route('profile-card.create') }}">Yeni Ekle</a> | 
+<a href="{{ route('admin.index') }}">Admin Kontrol Paneli</a>
 @if ($errors->any())
     <div>
         <ul>

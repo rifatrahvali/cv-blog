@@ -7,5 +7,7 @@
 </head>
 <body>
     <h1>Admin Panel</h1>
+    <a href="{{ route('profile-card.index') }}">Profile Card</a>
+    <a href="{{ route('about-card.index') }}">About Card</a>
 </body>
 </html>

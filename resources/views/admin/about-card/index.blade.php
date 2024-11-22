@@ -1,6 +1,6 @@
 <h1>About Cards</h1>
-    <a href="{{ route('about-card.create') }}">Yeni Ekle</a>
-
+    <a href="{{ route('about-card.create') }}">Yeni Ekle</a> | 
+    <a href="{{ route('admin.index') }}">Admin Kontrol Paneli</a>
     @if (session('success'))
         <div>{{ session('success') }}</div>
     @endif
