@@ -33,17 +33,15 @@ Route::prefix('admin')->group(function () {
     // Profile Card Routes
     // Listeleme
     Route::get('/profile-card', [ProfileCardController::class, 'index'])->name('profile-card.index');
-
     // Ekleme ve Güncelleme Formu
     Route::get('/profile-card/create', [ProfileCardController::class, 'create'])->name('profile-card.create');
     Route::get('/profile-card/{id}/edit', [ProfileCardController::class, 'edit'])->name('profile-card.edit');
-
     // Kayıt ve Güncelleme
     Route::post('/profile-card', [ProfileCardController::class, 'store'])->name('profile-card.store');
     Route::put('/profile-card/{id}', [ProfileCardController::class, 'update'])->name('profile-card.update');
-
     // Silme
     Route::delete('/profile-card/{id}', [ProfileCardController::class, 'destroy'])->name('profile-card.destroy');
+
 
     // About Card Routes
     Route::get('/about-card', [AboutCardController::class, 'index'])->name('about-card.index'); // Listeleme
@@ -54,36 +52,19 @@ Route::prefix('admin')->group(function () {
     Route::delete('/about-card/{id}', [AboutCardController::class, 'destroy'])->name('about-card.destroy'); // Silme
 
     // Experience Card Routes
-    Route::get(
-        '/experience-card',
-        [ExperienceCardController::class, 'index']
-    )
-        ->name('ExperienceCard.index');
-    Route::get(
-        '/experience-card/create',
-        [ExperienceCardController::class, 'create']
-    )
-        ->name('ExperienceCard.create');
-    Route::post(
-        '/experience-card',
-        [ExperienceCardController::class, 'store']
-    )
-        ->name('ExperienceCard.store');
-    Route::get(
-        '/experience-card/{id}/edit',
-        [ExperienceCardController::class, 'edit']
-    )
-        ->name('ExperienceCard.edit');
-    Route::put(
-        '/experience-card/{id}',
-        [ExperienceCardController::class, 'update']
-    )
-        ->name('ExperienceCard.update');
-    Route::delete(
-        '/experience-card/{id}',
-        [ExperienceCardController::class, 'destroy']
-    )
-        ->name('ExperienceCard.destroy');
+
+    // Deneyim kartlarını listeleme rotası.
+    Route::get('/experience-card', [ExperienceCardController::class, 'index'])->name('experience-card.index');
+    // Yeni deneyim kartı ekleme formu.
+    Route::get('/experience-card/create', [ExperienceCardController::class, 'create'])->name('experience-card.create');
+    // Yeni deneyim kartını veritabanına kaydetme.
+    Route::post('/experience-card', [ExperienceCardController::class, 'store'])->name('experience-card.store');
+    // Mevcut deneyim kartını düzenleme formu.
+    Route::get('/experience-card/{id}/edit', [ExperienceCardController::class, 'edit'])->name('experience-card.edit'); 
+    // Mevcut deneyim kartını güncelleme.
+    Route::put('/experience-card/{id}', [ExperienceCardController::class, 'update'])->name('experience-card.update'); 
+    // Mevcut deneyim kartını silme.
+    Route::delete('/experience-card/{id}', [ExperienceCardController::class, 'destroy'])->name('experience-card.destroy'); 
 
     // Learned from Experiences Card Routes
     Route::get(

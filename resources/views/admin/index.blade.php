@@ -7,7 +7,8 @@
 </head>
 <body>
     <h1>Admin Panel</h1>
-    <a href="{{ route('profile-card.index') }}">Profile Card</a>
-    <a href="{{ route('about-card.index') }}">About Card</a>
+    <a href="{{ route('profile-card.index') }}">Profil Kartı</a> | 
+    <a href="{{ route('about-card.index') }}">Hakkımda Kartı</a> | 
+    <a href="{{ route('experience-card.index') }}">Şirket Deneyimi Kartı</a>
 </body>
 </html>
