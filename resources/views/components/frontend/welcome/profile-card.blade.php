@@ -1,16 +1,31 @@
-<img src="{{ asset('assets/frontend/images/profil.png') }}" alt="Rifat Rahvali" class="card-img-top profile-pic">
+@if($profileCard->profile_image)
+    <img src="{{ asset('storage/' . $profileCard->profile_image) }}" alt="Profil Resmi" class="card-img-top profile-pic">
+@else
+    <span class="text-muted">Yok</span>
+@endif
 <div class="card-body">
-    <h4 class="card-title"><b>RIFAT RAHVALI</b></h4>
-    <p class="card-text">Bilgisayar Mühendisi</p>
+    <h4 class="card-title"><b>{{ $profileCard->name ?? '' }}</b></h4>
+    <p class="card-text">{{ $profileCard->title ?? '' }}</p>
 </div>
-<ul class="list-group list-group-flush">
-    <li class="list-group-item social-icons">
+<ul class="list-group list-group-flush d-flex">
+    <li class="list-group-item social-icons ">
         <a href="#">
-            @rifatrahvali |
+            {{ $profileCard->username ?? '' }}
+        </a>
+        <a href="{{ $profileCard->github_link ?? '' }}">
             <i class="bi bi-github"></i>
+        </a>
+        <a href="{{ $profileCard->instagram_link ?? '' }}">
             <i class="bi bi-instagram"></i>
+        </a>
+        <a href="{{ $profileCard->x_link ?? '' }}">
             <i class="bi bi-twitter-x"></i>
+        </a>
+        <a href="{{ $profileCard->linkedin_link ?? '' }}">
             <i class="bi bi-linkedin"></i>
+        </a>
+        <a href="{{ $profileCard->youtube_link ?? '' }}">
+            <i class="bi bi-youtube"></i>
         </a>
     </li>
 </ul>
