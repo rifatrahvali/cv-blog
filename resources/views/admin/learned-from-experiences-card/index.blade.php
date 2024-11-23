@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="container table-container">
-        <h1 class="text-center mb-4">Learned From Experiences Cards</h1>
-        <div class="d-flex justify-content-between mb-3">
+        <div class="d-flex justify-content-between align-items-center mb-4">
             <a href="{{ route('learned-from-experiences-card.create') }}" class="btn btn-primary">Yeni Ekle</a>
+            <h1 class="text-center mb-4">Learned From Experiences Cards</h1>
             <a href="{{ route('admin.index') }}" class="btn btn-secondary">Admin Kontrol Paneli</a>
         </div>
 
@@ -45,8 +45,10 @@
                         <td>{{ $card->section }}</td>
                         <td>{{ is_array($card->work_tags) ? implode(', ', $card->work_tags) : 'Yok' }}</td>
                         <td class="d-flex justify-content-center">
-                            <a href="{{ route('learned-from-experiences-card.edit', $card->id) }}" class="btn btn-sm btn-warning me-2">Düzenle</a>
-                            <form action="{{ route('learned-from-experiences-card.destroy', $card->id) }}" method="POST" style="display:inline;">
+                            <a href="{{ route('learned-from-experiences-card.edit', $card->id) }}"
+                                class="btn btn-sm btn-warning me-2">Düzenle</a>
+                            <form action="{{ route('learned-from-experiences-card.destroy', $card->id) }}" method="POST"
+                                style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger">Sil</button>

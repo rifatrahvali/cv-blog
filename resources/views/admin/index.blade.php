@@ -59,7 +59,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Eğitim Süresindeki Deneyimleri</h5>
                     <p class="card-text">Kişinin eğitiminde deneyimlediği bilgilerin tutulduğu kart alanıdır.</p>
-                    <a href="{{ route('learned-from-experiences-card.index') }}" class="btn btn-primary">Eğitimde Öğrenilenler Kartına Git</a>
+                    <a href="{{ route('learned-from-education-card.index') }}" class="btn btn-primary">Eğitimde Öğrenilenler Kartına Git</a>
                 </div>
             </div>
         </div>
