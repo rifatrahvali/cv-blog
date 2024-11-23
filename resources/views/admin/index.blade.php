@@ -83,6 +83,16 @@
                 </div>
             </div>
         </div>
+        <!-- Kart 8 -->
+        <div class="col-md-4 col-sm-6">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Site Ayarları Kartı</h5>
+                    <p class="card-text">Site'nin Header ve Footer kısmında düzenleme kart alanıdır.</p>
+                    <a href="{{ route('site-settings.index') }}" class="btn btn-primary">Site Ayarları Kartına Git</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @endsection

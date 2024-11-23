@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\AboutCardController;
+use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\AdminIndexController;
 use App\Http\Controllers\CertificateCardController;
 use App\Http\Controllers\CourseCardController;
@@ -12,12 +13,17 @@ use App\Http\Controllers\LearnedFromEducationCardController;
 use App\Http\Controllers\LearnedFromExperiencesCardController;
 use App\Http\Controllers\ProfileCardController;
 
+
 use Illuminate\Support\Facades\Route;
 
 // Index - CV - Route
 Route::get('/', [CVPageController::class, 'index'])->name('cv.index');
 
 Route::prefix('admin')->group(function () {
+
+    // CV - Frontend Index Routes
+    Route::get('/site-settings', [SiteSettingController::class, 'index'])->name('site-settings.index');
+    Route::post('/site-settings', [SiteSettingController::class, 'storeOrUpdate'])->name('site-settings.storeOrUpdate');
 
     // Admin Index Routes
     Route::get(

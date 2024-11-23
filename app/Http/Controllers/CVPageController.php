@@ -9,7 +9,9 @@ use App\Models\EducationCard; // EducationCard Modeli dahil ediyoruz.
 use App\Models\ExperienceCard; // ExperienceCard Modeli dahil ediyoruz.
 use App\Models\LearnedFromEducationCard; // LearnedFromEducationCard Modeli dahil ediyoruz.
 use App\Models\LearnedFromExperiencesCard; // LearnedFromExperiencesCard Modeli dahil ediyoruz.
-use App\Models\ProfileCard; // ProfileCard Modeli dahil ediyoruz.
+use App\Models\ProfileCard; 
+use App\Models\SiteSetting;// ProfileCard Modeli dahil ediyoruz.
+
 
 use Illuminate\Http\Request;
 
@@ -26,6 +28,7 @@ class CVPageController extends Controller
         $learnedFromEducationCard = LearnedFromEducationCard::all(); // Tüm kayıtları çekiyoruz.
         $experienceCard = ExperienceCard::first(); // İş Deneyimi bilgisi, yalnızca bir kayıt olduğu için first() kullanıldı.
         $learnedFromExperiencesCard = LearnedFromExperiencesCard::all(); // Tüm kayıtları çekiyoruz.
+        $siteSettings = SiteSetting::first();
         // Verileri değişkenler ile frontend blade'e gönderiyoruz.
         return view('frontend.welcome', compact(
             'profileCard',
@@ -35,7 +38,8 @@ class CVPageController extends Controller
             'educationCard',
             'learnedFromEducationCard',
             'experienceCard',
-            'learnedFromExperiencesCard'
+            'learnedFromExperiencesCard',
+            'siteSettings'
         ));
     }
 
