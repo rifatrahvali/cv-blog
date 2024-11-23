@@ -3,7 +3,7 @@
         <h3 class="card-title">Deneyim</h3>
         <p class="card-text">
             <b>{{$experienceCard->company_name}}</b> <br>
-            {{$experienceCard->start_date}} : {{$experienceCard->start_date}} <br>
+            {{$experienceCard->start_date}} : {{$experienceCard->end_date}} <br>
             <small class="text-muted">{{$experienceCard->title}}</small>
         </p>
     </div>

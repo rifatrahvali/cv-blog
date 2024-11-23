@@ -5,22 +5,14 @@
             <p class="card-text">
                 <b>Kurumsal IT Yapısı</b>
             </p>
-            <p class="card-text">
-                <b>Network</b> | Kurulum & Yönetim <br>
-                <small class="text-muted">Forti - Juniper </small>
-            </p>
-            <p class="card-text">
-                <b>Sistem</b> | Kurulum & Yönetim <br>
-                <small class="text-muted">Active Directory - File Server - Domain </small>
-            </p>
-            <p class="card-text">
-                <b>Microsoft 365 Admin Center</b> | Yönetim <br>
-                <small class="text-muted">Kullanıcılar & Gruplar - Email - Defender</small>
-            </p>
-            <p class="card-text">
-                <b>Yazılım</b> | Destek <br>
-                <small class="text-muted">Dynamics CRM - Navision - LOGO</small>
-            </p>
+            @foreach ($learnedFromExperiencesCard as $lfec)
+                <p class="card-text">
+                    <b>{{ $lfec->section ?? '' }}</b> | {{ $lfec->sentence ?? '' }} <br>
+                    <small class="text-muted">
+                        {{ is_array($lfec->work_tags) ? implode(', ', $lfec->work_tags) : $lfec->work_tags }}
+                    </small>
+                </p>
+            @endforeach
         </div>
     </div>
 </div>
