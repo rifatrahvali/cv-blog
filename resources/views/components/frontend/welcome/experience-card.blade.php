@@ -2,9 +2,9 @@
     <div class="card-body">
         <h3 class="card-title">Deneyim</h3>
         <p class="card-text">
-            <b>Ağaoğlu Şirketler Grubu</b> <br>
-            2020-2024 <br>
-            <small class="text-muted">Uzman</small>
+            <b>{{$experienceCard->company_name}}</b> <br>
+            {{$experienceCard->start_date}} : {{$experienceCard->start_date}} <br>
+            <small class="text-muted">{{$experienceCard->title}}</small>
         </p>
     </div>
 </div>
