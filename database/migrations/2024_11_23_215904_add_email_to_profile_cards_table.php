@@ -23,6 +23,7 @@ return new class extends Migration
     {
         Schema::table('profile_cards', function (Blueprint $table) {
             //
+            $table->dropColumn('email'); // Geri alma işlemi
         });
     }
 };
