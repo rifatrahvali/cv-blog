@@ -6,11 +6,10 @@
 }
 
 
-
-.card:hover {
+/* .card:hover {
     transform: scale(1.05);
     transition: transform 0.2s ease-in-out;
-}
+} */
 .btn {
     border-radius: 0;
     /* Butonların köşelerini kaldır */
@@ -42,4 +41,25 @@
     background-color: #c9d7e4; /* Hoverda gri ton */
     color: #000000 !important; /* Yazı hoverda beyaz olur */
     border-color: #6C757D; /* Çerçeve hover rengini takip eder */
+}
+
+.table-container {
+    margin: 2rem auto;
+    max-width: 1200px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.table th, .table td {
+    vertical-align: middle;
+    text-align: center;
+}
+.table img {
+    border-radius: 8px;
+    object-fit: cover;
+}
+.action-buttons a, .action-buttons button {
+    margin: 0 5px;
 }

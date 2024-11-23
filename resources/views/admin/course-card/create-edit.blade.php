@@ -1,37 +1,58 @@
-<h1>{{ $courseCard ? 'Kurs Düzenle' : 'Yeni Kurs Ekle' }}</h1> | 
-<a href="{{ route('admin.index') }}">Admin Kontrol Paneli</a>
+@extends('layouts.admin')
 
-@if ($errors->any()) <!-- Hata mesajlarını göster -->
-    <div>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+@section('content')
+<div class="container d-flex justify-content-center mt-3">
+    <div class="card shadow-sm p-4" style="width: 90%; background-color: #f8f9fa; border-radius: 12px; border: 1px solid #e3e6e9;">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <a href="{{ route('course-card.index') }}" class="btn btn-secondary">Geri Dön</a>
+            <h2 class="text-center mb-4">{{ $courseCard ? 'Kurs Düzenle' : 'Yeni Kurs Ekle' }}</h2>
+            <a href="{{ route('admin.index') }}" class="btn btn-secondary">Admin Kontrol Paneli</a>
+        </div>
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form action="{{ $courseCard ? route('course-card.update', $courseCard->id) : route('course-card.store') }}" method="POST">
+            @csrf
+            @if ($courseCard)
+                @method('PUT')
+            @endif
+
+            <!-- Kurs Adı -->
+            <div class="mb-3">
+                <label for="course_name" class="form-label"><strong>Kurs Adı:</strong></label>
+                <input type="text" id="course_name" name="course_name" 
+                       value="{{ old('course_name', $courseCard->course_name ?? '') }}" 
+                       class="form-control" required>
+            </div>
+
+            <!-- Kurum -->
+            <div class="mb-3">
+                <label for="institution" class="form-label"><strong>Kurum:</strong></label>
+                <input type="text" id="institution" name="institution" 
+                       value="{{ old('institution', $courseCard->institution ?? '') }}" 
+                       class="form-control" required>
+            </div>
+
+            <!-- Yan Kazanımlar -->
+            <div class="mb-3">
+                <label for="additional_achievements" class="form-label"><strong>Yan Kazanımlar (virgülle ayrılmış):</strong></label>
+                <input type="text" id="additional_achievements" name="additional_achievements" 
+                       value="{{ old('additional_achievements', isset($courseCard) && $courseCard->additional_achievements ? implode(', ', $courseCard->additional_achievements) : '') }}" 
+                       class="form-control">
+            </div>
+
+            <div class="d-flex justify-content-between mt-3">
+                <button type="submit" class="btn btn-primary w-100">{{ $courseCard ? 'Güncelle' : 'Kaydet' }}</button>
+            </div>
+        </form>
     </div>
-@endif
-
-<form action="{{ $courseCard ? route('course-card.update', $courseCard->id) : route('course-card.store') }}" method="POST">
-    @csrf <!-- CSRF koruması -->
-    @if ($courseCard)
-        @method('PUT') <!-- Güncelleme işlemi için PUT metodu -->
-    @endif
-
-    <div>
-        <label for="course_name">Kurs Adı:</label>
-        <input type="text" id="course_name" name="course_name" value="{{ old('course_name', $courseCard->course_name ?? '') }}" required>
-    </div>
-
-    <div>
-        <label for="institution">Kurum:</label>
-        <input type="text" id="institution" name="institution" value="{{ old('institution', $courseCard->institution ?? '') }}" required>
-    </div>
-
-    <div>
-        <label for="additional_achievements">Yan Kazanımlar (virgülle ayrılmış):</label>
-        <input type="text" id="additional_achievements" name="additional_achievements"
-               value="{{ old('additional_achievements', isset($courseCard) && $courseCard->additional_achievements ? implode(', ', $courseCard->additional_achievements) : '') }}">
-    </div>
-
-    <button type="submit">{{ $courseCard ? 'Güncelle' : 'Kaydet' }}</button> <!-- Gönder butonu -->
-</form>
+</div>
+@endsection

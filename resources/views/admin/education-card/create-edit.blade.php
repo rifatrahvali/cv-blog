@@ -1,50 +1,82 @@
-<h1>{{ $educationCard ? 'Eğitim Düzenle' : 'Yeni Eğitim Ekle' }}</h1>
+@extends('layouts.admin')
 
-@if ($errors->any())
-    <div>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+@section('content')
+<div class="container d-flex justify-content-center mt-3">
+    <div class="card shadow-sm p-4" style="width: 90%; background-color: #f8f9fa; border-radius: 12px; border: 1px solid #e3e6e9;">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <a href="{{ route('education-card.index') }}" class="btn btn-secondary">Geri Dön</a>
+            <h2 class="text-center mb-4">{{ $educationCard ? 'Eğitim Düzenle' : 'Yeni Eğitim Ekle' }}</h2>
+            <a href="{{ route('admin.index') }}" class="btn btn-secondary">Admin Kontrol Paneli</a>
+        </div>
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form action="{{ $educationCard ? route('education-card.update', $educationCard->id) : route('education-card.store') }}" method="POST">
+            @csrf
+            @if ($educationCard)
+                @method('PUT')
+            @endif
+
+            <!-- Eğitim Seviyesi -->
+            <div class="mb-3">
+                <label for="section" class="form-label"><strong>Eğitim Seviyesi:</strong></label>
+                <input type="text" id="section" name="section" 
+                       value="{{ old('section', $educationCard->section ?? '') }}" 
+                       class="form-control" required>
+            </div>
+
+            <!-- Şehir -->
+            <div class="mb-3">
+                <label for="city" class="form-label"><strong>Şehir:</strong></label>
+                <input type="text" id="city" name="city" 
+                       value="{{ old('city', $educationCard->city ?? '') }}" 
+                       class="form-control" required>
+            </div>
+
+            <!-- Okul Adı -->
+            <div class="mb-3">
+                <label for="school_name" class="form-label"><strong>Okul Adı:</strong></label>
+                <input type="text" id="school_name" name="school_name" 
+                       value="{{ old('school_name', $educationCard->school_name ?? '') }}" 
+                       class="form-control" required>
+            </div>
+
+            <!-- Bölüm -->
+            <div class="mb-3">
+                <label for="department" class="form-label"><strong>Bölüm:</strong></label>
+                <input type="text" id="department" name="department" 
+                       value="{{ old('department', $educationCard->department ?? '') }}" 
+                       class="form-control" required>
+            </div>
+
+            <!-- Başlangıç Yılı -->
+            <div class="mb-3">
+                <label for="start_year" class="form-label"><strong>Başlangıç Yılı:</strong></label>
+                <input type="date" id="start_year" name="start_year" 
+                       value="{{ old('start_year', $educationCard->start_year ?? '') }}" 
+                       class="form-control" required>
+            </div>
+
+            <!-- Bitiş Yılı -->
+            <div class="mb-3">
+                <label for="end_year" class="form-label"><strong>Bitiş Yılı:</strong></label>
+                <input type="date" id="end_year" name="end_year" 
+                       value="{{ old('end_year', $educationCard->end_year ?? '') }}" 
+                       class="form-control">
+            </div>
+
+            <div class="d-flex justify-content-between mt-3">
+                <button type="submit" class="btn btn-primary w-100">{{ $educationCard ? 'Güncelle' : 'Kaydet' }}</button>
+            </div>
+        </form>
     </div>
-@endif
-
-<form action="{{ $educationCard ? route('education-card.update', $educationCard->id) : route('education-card.store') }}" method="POST">
-    @csrf
-    @if ($educationCard)
-        @method('PUT')
-    @endif
-
-    <div>
-        <label for="section">Eğitim Seviyesi:</label>
-        <input type="text" id="section" name="section" value="{{ old('section', $educationCard->section ?? '') }}" required>
-    </div>
-
-    <div>
-        <label for="city">Şehir:</label>
-        <input type="text" id="city" name="city" value="{{ old('city', $educationCard->city ?? '') }}" required>
-    </div>
-
-    <div>
-        <label for="school_name">Okul Adı:</label>
-        <input type="text" id="school_name" name="school_name" value="{{ old('school_name', $educationCard->school_name ?? '') }}" required>
-    </div>
-
-    <div>
-        <label for="department">Bölüm:</label>
-        <input type="text" id="department" name="department" value="{{ old('department', $educationCard->department ?? '') }}" required>
-    </div>
-
-    <div>
-        <label for="start_year">Başlangıç Yılı:</label>
-        <input type="date" id="start_year" name="start_year" value="{{ old('start_year', $educationCard->start_year ?? '') }}" required>
-    </div>
-
-    <div>
-        <label for="end_year">Bitiş Yılı:</label>
-        <input type="date" id="end_year" name="end_year" value="{{ old('end_year', $educationCard->end_year ?? '') }}">
-    </div>
-
-    <button type="submit">{{ $educationCard ? 'Güncelle' : 'Kaydet' }}</button>
-</form>
+</div>
+@endsection

@@ -1,43 +1,65 @@
-<h1>Experience Cards</h1> {{-- Sayfa başlığı. --}}
-{{-- Yeni deneyim kartı ekleme bağlantısı. --}}
-<a href="{{ route('experience-card.create') }}">Yeni Ekle</a> | 
-<a href="{{ route('admin.index') }}">Admin Kontrol Paneli</a>
+@extends('layouts.admin')
 
+@section('content')
+<div class="container">
+    <div class="container table-container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <a href="{{ route('experience-card.create') }}" class="btn btn-primary">Yeni Ekle</a>
+            <h2 class="text-center mb-4">Experience Cards</h2>
+            <a href="{{ route('admin.index') }}" class="btn btn-secondary">Admin Kontrol Paneli</a>
+        </div>
 
-@if (session('success')) {{-- Başarı mesajını göster. --}}
-    <div>{{ session('success') }}</div>
-@endif
+        @if (session('success'))
+            <div class="alert alert-success text-center">
+                {{ session('success') }}
+            </div>
+        @endif
 
-<table>
-    <thead>
-        <tr>
-            <th>ID</th> {{-- Kart ID'si --}}
-            <th>Şirket Adı</th> {{-- Şirket adı --}}
-            <th>Başlangıç Tarihi</th> {{-- Başlangıç tarihi --}}
-            <th>Bitiş Tarihi</th> {{-- Bitiş tarihi --}}
-            <th>Departman</th> {{-- Departman --}}
-            <th>Unvan</th> {{-- Unvan --}}
-            <th>İşlem</th> {{-- İşlemler (düzenle/sil) --}}
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($experienceCards as $card) {{-- Tüm deneyim kartlarını döngüyle listele. --}}
-            <tr>
-                <td>{{ $card->id }}</td> {{-- Kart ID'si --}}
-                <td>{{ $card->company_name }}</td> {{-- Şirket adı --}}
-                <td>{{ $card->start_date }}</td> {{-- Başlangıç tarihi --}}
-                <td>{{ $card->end_date ?? 'Devam Ediyor' }}</td> {{-- Bitiş tarihi ya da devam ediyor --}}
-                <td>{{ $card->department }}</td> {{-- Departman --}}
-                <td>{{ $card->title }}</td> {{-- Unvan --}}
-                <td>
-                    <a href="{{ route('experience-card.edit', $card->id) }}">Düzenle</a> {{-- Düzenleme bağlantısı --}}
-                    <form action="{{ route('experience-card.destroy', $card->id) }}" method="POST" style="display:inline;">
-                        @csrf {{-- CSRF koruması --}}
-                        @method('DELETE') {{-- HTTP DELETE yöntemi --}}
-                        <button type="submit">Sil</button> {{-- Silme butonu --}}
-                    </form>
-                </td>
-            </tr>
-        @endforeach
-    </tbody>
-</table>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Şirket Adı</th>
+                    <th>Başlangıç Tarihi</th>
+                    <th>Bitiş Tarihi</th>
+                    <th>Departman</th>
+                    <th>Unvan</th>
+                    <th>İşlem</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($experienceCards as $card)
+                    <tr>
+                        <td>{{ $card->id }}</td>
+                        <td>{{ $card->company_name }}</td>
+                        <td>{{ $card->start_date }}</td>
+                        <td>{{ $card->end_date ?? 'Devam Ediyor' }}</td>
+                        <td>{{ $card->department }}</td>
+                        <td>{{ $card->title }}</td>
+                        <td class="d-flex justify-content-center">
+                            <a href="{{ route('experience-card.edit', $card->id) }}"
+                                class="btn btn-sm btn-warning me-2">Düzenle</a>
+                            <form action="{{ route('experience-card.destroy', $card->id) }}" method="POST"
+                                style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger">Sil</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+@endsection
