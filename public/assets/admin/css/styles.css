@@ -1,0 +1,45 @@
+.card {
+    border-radius: 0;
+    /* Köşeleri tamamen kaldır */
+    border: 1px solid #000;
+    /* İnce siyah çerçeve */
+}
+
+
+
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+}
+.btn {
+    border-radius: 0;
+    /* Butonların köşelerini kaldır */
+}
+
+.btn-primary {
+    background-color: #333333; /* Açık siyah (koyu gri) arka plan */
+    color: #FFFFFF; /* Beyaz yazı */
+    border-color: #333333; /* Çerçeve */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Hover geçişleri */
+}
+
+.btn-primary:hover {
+    background-color: #E0E0E0; /* Hoverda açık gri */
+    color: #000000; /* Hoverda siyah yazı */
+    border-color: #E0E0E0; /* Hoverda çerçeve */
+}
+
+/* Admin Butonu */
+.btn-admin {
+    background-color: #FFFFFF; /* Normalde beyaz arkaplan */
+    color: #000000; /* Siyah yazı */
+    border: 1px solid #6C757D; /* Hafif gri çerçeve */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Geçiş efekti */
+}
+
+/* Hover Durumu */
+.btn-admin:hover {
+    background-color: #c9d7e4; /* Hoverda gri ton */
+    color: #000000 !important; /* Yazı hoverda beyaz olur */
+    border-color: #6C757D; /* Çerçeve hover rengini takip eder */
+}

@@ -17,7 +17,7 @@ Route::get(
     function () {
         return view('frontend.welcome');
     }
-);
+)->name('cv');
 Route::prefix('admin')->group(function () {
 
     // Admin Index Routes
