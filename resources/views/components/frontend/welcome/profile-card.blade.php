@@ -32,8 +32,7 @@
 <div class="card-body">
     <div class="social-icons">
         <a href="mailto:rifatrahvali@outlook.com" class="card-link">
-            rifatrahvali@outlook.com |
-            <i class="bi bi-envelope"></i>
+            rifatrahvali@outlook.com | <i class="bi bi-envelope"></i>
         </a>
     </div>
 </div>
