@@ -3,27 +3,12 @@
 @section('content')
 <div class="container">
     <div class="container table-container">
-        <h1 class="text-center mb-4">Eğitim Kartları</h1>
-        <div class="d-flex justify-content-between mb-3">
+        
+        <div class="d-flex justify-content-between align-items-center mb-4">
             <a href="{{ route('education-card.create') }}" class="btn btn-primary">Yeni Eğitim Ekle</a>
+            <h2 class="text-center">Eğitim Kartları</h2>
             <a href="{{ route('admin.index') }}" class="btn btn-secondary">Admin Kontrol Paneli</a>
         </div>
-
-        @if (session('success'))
-            <div class="alert alert-success text-center">
-                {{ session('success') }}
-            </div>
-        @endif
-
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
 
         <table class="table table-bordered table-striped">
             <thead class="table-dark">

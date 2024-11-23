@@ -16,6 +16,7 @@
 
     @include('layouts.partials.admin.header') <!-- Header buradan geliyor -->
 
+    @include('layouts.partials.admin.messages') <!-- Durum Güncelleme mesajları buradan geliyor -->
 
     <!-- Main Content -->
     <div class="container mt-4">

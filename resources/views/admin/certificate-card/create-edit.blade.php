@@ -5,19 +5,9 @@
     <div class="card shadow-sm p-4" style="width: 90%; background-color: #f8f9fa; border-radius: 12px; border: 1px solid #e3e6e9;">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <a href="{{ route('certificate-card.index') }}" class="btn btn-secondary">Geri Dön</a>
-            <h2 class="text-center mb-4">{{ $certificateCard ? 'Sertifika Düzenle' : 'Yeni Sertifika Ekle' }}</h2>
+            <h2 class="text-center">{{ $certificateCard ? 'Sertifika Düzenle' : 'Yeni Sertifika Ekle' }}</h2>
             <a href="{{ route('admin.index') }}" class="btn btn-secondary">Admin Kontrol Paneli</a>
         </div>
-
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul class="mb-0">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
 
         <form action="{{ $certificateCard ? route('certificate-card.update', $certificateCard->id) : route('certificate-card.store') }}" method="POST">
             @csrf

@@ -5,25 +5,9 @@
     <div class="container table-container">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <a href="{{ route('learned-from-experiences-card.create') }}" class="btn btn-primary">Yeni Ekle</a>
-            <h1 class="text-center mb-4">Learned From Experiences Cards</h1>
+            <h2 class="text-center">Learned From Experiences Cards</h2>
             <a href="{{ route('admin.index') }}" class="btn btn-secondary">Admin Kontrol Paneli</a>
         </div>
-
-        @if (session('success'))
-            <div class="alert alert-success text-center">
-                {{ session('success') }}
-            </div>
-        @endif
-
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
 
         <table class="table table-bordered table-striped">
             <thead class="table-dark">

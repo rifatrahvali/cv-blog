@@ -5,20 +5,9 @@
     <div class="container table-container">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <a href="{{ route('profile-card.create') }}" class="btn btn-primary">Yeni Ekle</a>
-            <h2 class="text-center mb-4">Profile Cards</h2>
+            <h2 class="text-center">Profile Cards</h2>
             <a href="{{ route('admin.index') }}" class="btn btn-secondary">Admin Kontrol Paneli</a>
         </div>
-        
-
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
 
         <table class="table table-bordered table-striped">
             <thead class="table-dark">

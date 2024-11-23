@@ -6,19 +6,9 @@
         style="width: 90%; background-color: #f8f9fa; border-radius: 12px; border: 1px solid #e3e6e9;">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <a href="{{ route('profile-card.index') }}" class="btn btn-secondary">Geri Dön</a>
-            <h2 class="text-center mb-4">{{ $profileCard ? 'Profil Kartı Düzenle' : 'Profil Kartı Ekle' }}</h2>
+            <h2 class="text-center">{{ $profileCard ? 'Profil Kartı Düzenle' : 'Profil Kartı Ekle' }}</h2>
             <a href="{{ route('admin.index') }}" class="btn btn-secondary">Admin Kontrol Paneli</a>
         </div>
-
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
 
         <form action="{{ $profileCard ? route('profile-card.update', $profileCard->id) : route('profile-card.store') }}"
             method="POST" enctype="multipart/form-data">

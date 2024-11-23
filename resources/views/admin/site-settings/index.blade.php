@@ -1,44 +1,75 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
-    <h1 class="text-center mb-4">Site Ayarları</h1>
-
-    @if (session('success'))
-        <div class="alert alert-success text-center">
-            {{ session('success') }}
-        </div>
-    @endif
-
-    <form action="{{ route('site-settings.storeOrUpdate') }}" method="POST">
-        @csrf
-
-        <div class="mb-3">
-            <label for="header_title" class="form-label"><strong>Header Başlık</strong></label>
-            <input type="text" id="header_title" name="header_title" class="form-control" 
-                   value="{{ old('header_title', $settings->header_title ?? '') }}" required>
+<div class="container d-flex justify-content-center mt-3">
+    <div class="card shadow-sm p-4"
+        style="width: 90%; background-color: #f8f9fa; border-radius: 12px; border: 1px solid #e3e6e9;">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="text-center">Site Ayarları</h2>
+            <a href="{{ route('admin.index') }}" class="btn btn-secondary">Admin Kontrol Paneli</a>
         </div>
 
-        <div class="mb-3">
-            <label for="header_subtitle" class="form-label"><strong>Header Alt Başlık</strong></label>
-            <input type="text" id="header_subtitle" name="header_subtitle" class="form-control" 
-                   value="{{ old('header_subtitle', $settings->header_subtitle ?? '') }}" required>
-        </div>
+        <form action="{{ route('site-settings.storeOrUpdate') }}" method="POST">
+            @csrf
 
-        <div class="mb-3">
-            <label for="footer_text" class="form-label"><strong>Footer Yazısı</strong></label>
-            <input type="text" id="footer_text" name="footer_text" class="form-control" 
-                   value="{{ old('footer_text', $settings->footer_text ?? '') }}" required>
-        </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <!-- Header Başlık -->
+                        <tr>
+                            <td class="text-end align-middle" style="vertical-align: top;">
+                                <strong>Header Başlık:</strong>
+                            </td>
+                            <td>
+                                <input type="text" id="header_title" name="header_title"
+                                    value="{{ old('header_title', $settings->header_title ?? '') }}"
+                                    class="form-control" required>
+                            </td>
+                        </tr>
 
-        <div class="mb-3">
-            <label for="footer_year" class="form-label"><strong>Footer Yılı</strong></label>
-            <input type="number" id="footer_year" name="footer_year" class="form-control" 
-                   value="{{ old('footer_year', $settings->footer_year ?? date('Y')) }}" 
-                   min="1900" max="{{ date('Y') }}" required>
-        </div>
+                        <!-- Header Alt Başlık -->
+                        <tr>
+                            <td class="text-end align-middle" style="vertical-align: top;">
+                                <strong>Header Alt Başlık:</strong>
+                            </td>
+                            <td>
+                                <input type="text" id="header_subtitle" name="header_subtitle"
+                                    value="{{ old('header_subtitle', $settings->header_subtitle ?? '') }}"
+                                    class="form-control" required>
+                            </td>
+                        </tr>
 
-        <button type="submit" class="btn btn-primary w-100">Kaydet</button>
-    </form>
+                        <!-- Footer Yazısı -->
+                        <tr>
+                            <td class="text-end align-middle" style="vertical-align: top;">
+                                <strong>Footer Yazısı:</strong>
+                            </td>
+                            <td>
+                                <input type="text" id="footer_text" name="footer_text"
+                                    value="{{ old('footer_text', $settings->footer_text ?? '') }}" class="form-control"
+                                    required>
+                            </td>
+                        </tr>
+
+                        <!-- Footer Yılı -->
+                        <tr>
+                            <td class="text-end align-middle" style="vertical-align: top;">
+                                <strong>Footer Yılı:</strong>
+                            </td>
+                            <td>
+                                <input type="number" id="footer_year" name="footer_year"
+                                    value="{{ old('footer_year', $settings->footer_year ?? date('Y')) }}"
+                                    class="form-control" min="1900" max="{{ date('Y') }}" required>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="d-flex justify-content-between mt-3">
+                <button type="submit" class="btn btn-primary w-100">Kaydet</button>
+            </div>
+        </form>
+    </div>
 </div>
 @endsection
