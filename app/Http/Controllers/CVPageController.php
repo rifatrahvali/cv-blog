@@ -21,7 +21,7 @@ class CVPageController extends Controller
         $profileCard = ProfileCard::first(); // Profil bilgisi, yalnızca bir kayıt olduğu için first() kullanıldı.
         $aboutCard = AboutCard::first(); // Hakkında bilgisi, yalnızca bir kayıt olduğu için first() kullanıldı.
         $certificateCard = CertificateCard::first(); // Sertifika bilgisi, yalnızca bir kayıt olduğu için first() kullanıldı.
-        $courseCard = CourseCard::first(); // Kurs bilgisi, yalnızca bir kayıt olduğu için first() kullanıldı.
+        $courseCard = CourseCard::all(); // Tüm kayıtları çekiyoruz.
         $educationCard = EducationCard::first(); // Eğitim bilgisi, yalnızca bir kayıt olduğu için first() kullanıldı.
         $learnedFromEducationCard = LearnedFromEducationCard::all(); // Tüm kayıtları çekiyoruz.
         $experienceCard = ExperienceCard::first(); // İş Deneyimi bilgisi, yalnızca bir kayıt olduğu için first() kullanıldı.
