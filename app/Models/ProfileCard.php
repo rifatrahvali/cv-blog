@@ -24,6 +24,7 @@ class ProfileCard extends Model
         'instagram_link',     // Kullanıcının Instagram profil bağlantısı
         'youtube_link',       // Kullanıcının YouTube profil bağlantısı
         'x_link',             // Kullanıcının X (eski adıyla Twitter) profil bağlantısı
-        'linkedin_link'       // Kullanıcının LinkedIn profil bağlantısı
+        'linkedin_link',       // Kullanıcının LinkedIn profil bağlantısı
+        'email', // Yeni eklenen sütun
     ];
 }

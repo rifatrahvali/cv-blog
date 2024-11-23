@@ -37,6 +37,7 @@ class ProfileCardController extends Controller
             'name' => 'required|string|max:255',
             'title' => 'nullable|string|max:255',
             'username' => 'nullable|string|max:255',
+            'email' => 'required|email|max:255', // Email doğrulaması
             'github_link' => 'nullable|url',
             'instagram_link' => 'nullable|url',
             'youtube_link' => 'nullable|url',
@@ -62,6 +63,7 @@ class ProfileCardController extends Controller
             'name' => 'required|string|max:255',
             'title' => 'nullable|string|max:255',
             'username' => 'nullable|string|max:255',
+            'email' => 'required|email|max:255', // Email doğrulaması
             'github_link' => 'nullable|url',
             'instagram_link' => 'nullable|url',
             'youtube_link' => 'nullable|url',

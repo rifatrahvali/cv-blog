@@ -28,7 +28,6 @@ Route::prefix('admin')->group(function () {
     // Admin Index Routes
     Route::get(
         '/',
-        // [AdminIndexController::class, 'index']
         function () {
             return view('admin.index');
         }

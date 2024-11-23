@@ -17,6 +17,7 @@
                     <th>Ad</th>
                     <th>Unvan</th>
                     <th>Kullanıcı Adı</th>
+                    <th>Email</th>
                     <th>GitHub</th>
                     <th>Instagram</th>
                     <th>YouTube</th>
@@ -40,6 +41,7 @@
                         <td>{{ $card->name }}</td>
                         <td>{{ $card->title }}</td>
                         <td>{{ $card->username }}</td>
+                        <td><a href="mailto:{{ $card->email }}" target="_blank">E-Mail</a></td>
                         <td><a href="{{ $card->github_link }}" target="_blank">GitHub</a></td>
                         <td><a href="{{ $card->instagram_link }}" target="_blank">Instagram</a></td>
                         <td><a href="{{ $card->youtube_link }}" target="_blank">YouTube</a></td>

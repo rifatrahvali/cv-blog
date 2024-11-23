@@ -31,8 +31,8 @@
 </ul>
 <div class="card-body">
     <div class="social-icons">
-        <a href="mailto:rifatrahvali@outlook.com" class="card-link">
-            rifatrahvali@outlook.com | <i class="bi bi-envelope"></i>
+        <a href="mailto:{{$profileCard->email}}" class="card-link">
+        {{$profileCard->email}} <i class="bi bi-envelope"></i>
         </a>
     </div>
 </div>

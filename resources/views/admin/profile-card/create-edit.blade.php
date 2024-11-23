@@ -55,6 +55,12 @@
                             </td>
                         </tr>
                         <tr>
+                            <td class="text-end"><strong>Email:</strong></td>
+                            <td><input type="email" id="email" name="email"
+                                    value="{{ old('email', $profileCard->email ?? '') }}" class="form-control" required>
+                            </td>
+                        </tr>
+                        <tr>
                             <td class="text-end"><strong>GitHub:</strong></td>
                             <td><input type="url" id="github_link" name="github_link"
                                     value="{{ old('github_link', $profileCard->github_link ?? 'https://github.com/username') }}"
