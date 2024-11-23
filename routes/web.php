@@ -5,19 +5,18 @@ use App\Http\Controllers\AboutCardController;
 use App\Http\Controllers\AdminIndexController;
 use App\Http\Controllers\CertificateCardController;
 use App\Http\Controllers\CourseCardController;
+use App\Http\Controllers\CVPageController;
 use App\Http\Controllers\EducationCardController;
 use App\Http\Controllers\ExperienceCardController;
 use App\Http\Controllers\LearnedFromEducationCardController;
 use App\Http\Controllers\LearnedFromExperiencesCardController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileCardController;
 
-Route::get(
-    '/',
-    function () {
-        return view('frontend.welcome');
-    }
-)->name('cv');
+use Illuminate\Support\Facades\Route;
+
+// Index - CV - Route
+Route::get('/', [CVPageController::class, 'index'])->name('cv.index');
+
 Route::prefix('admin')->group(function () {
 
     // Admin Index Routes
