@@ -12,9 +12,11 @@
                 </a>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
-                <a class="btn btn-sm btn-outline-secondary text-body-emphasis btn-admin" href="#">Admin</a>
+                <form method="POST" action="{{ route('admin.auth.logout') }}">
+                    @csrf
+                    <button class="btn btn-sm btn-outline-secondary text-body-emphasis btn-admin type="submit">Çıkış Yap</button>
+                </form>
             </div>
         </div>
     </div>
 </header>
-
