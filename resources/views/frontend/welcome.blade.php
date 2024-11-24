@@ -20,7 +20,7 @@
 
         <section class="col-md-8 mt-md-0">
             <div class="row">
-                <!-- İş Deneyimi Kartı -->
+                <!-- İş DeneyimiKartı -->
                 <div class="col-md-6 mb-3">
                     @include('components.frontend.welcome.experience-card')
                 </div>
