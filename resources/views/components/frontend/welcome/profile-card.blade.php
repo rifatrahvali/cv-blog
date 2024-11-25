@@ -1,4 +1,4 @@
-@if($profileCard->profile_image)
+@if(optional($profileCard)->profile_image)
     <img src="{{ asset('storage/' . $profileCard->profile_image) }}" alt="Profil Resmi" class="card-img-top profile-pic">
 @else
     <span class="text-muted">Yok</span>
@@ -31,8 +31,8 @@
 </ul>
 <div class="card-body">
     <div class="social-icons">
-        <a href="mailto:{{$profileCard->email}}" class="card-link">
-        {{$profileCard->email}} <i class="bi bi-envelope"></i>
+        <a href="mailto:{{ $profileCard->email ?? '' }}" class="card-link">
+        {{ $profileCard->email ?? '' }} <i class="bi bi-envelope"></i>
         </a>
     </div>
 </div>

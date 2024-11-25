@@ -5,14 +5,22 @@
             <p class="card-text">
                 <b>Kurumsal IT Yapısı</b>
             </p>
-            @foreach ($learnedFromExperiencesCard as $lfec)
-                <p class="card-text">
-                    <b>{{ $lfec->section ?? '' }}</b> | {{ $lfec->sentence ?? '' }} <br>
-                    <small class="text-muted">
-                        {{ is_array($lfec->work_tags) ? implode(', ', $lfec->work_tags) : $lfec->work_tags }}
-                    </small>
-                </p>
-            @endforeach
+
+            @if (!empty($learnedFromExperiencesCard) && $learnedFromExperiencesCard->count())
+                @foreach ($learnedFromExperiencesCard as $lfec)
+                    <p class="card-text">
+                        <b>{{ $lfec->section ?? 'Bölüm Bilgisi Belirtilmemiş' }}</b> | 
+                        {{ $lfec->sentence ?? 'Cümle Bilgisi Yok' }} <br>
+                        <small class="text-muted">
+                            {{ is_array($lfec->work_tags) 
+                                ? implode(', ', $lfec->work_tags) 
+                                : ($lfec->work_tags ?? 'Etiket Bilgisi Yok') }}
+                        </small>
+                    </p>
+                @endforeach
+            @else
+                <p class="text-muted">Henüz öğrenim bilgisi eklenmedi.</p>
+            @endif
         </div>
     </div>
 </div>
