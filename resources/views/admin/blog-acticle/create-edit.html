@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Blog İçerik Ekle</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Quill CSS -->
+    <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+</head>
+
+<body class="bg-light py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Admin Blog İçerik Ekle</h2>
+        <form id="blog-form">
+            <!-- Blog eklemek için mevcut kategorilerden seçin -->
+            <div class="mb-3">
+                <label for="blog-category" class="form-label">Kategori</label>
+                <select class="form-select" id="blog-category" name="blog-category">
+                    <option value="" selected>Kategori Seçin</option>
+                    <option value="kategori1">Kategori 1</option>
+                    <option value="kategori2">Kategori 2</option>
+                </select>
+            </div>
+
+            <!-- Konu Başlığı -->
+            <div class="mb-3">
+                <label for="article-name" class="form-label">Makale Adı</label>
+                <input type="text" class="form-control" id="article-name" name="article-name" placeholder="Makale Adını Girin">
+            </div>
+
+            <!-- Konu İçeriği (QuillJS ile) -->
+            <div class="mb-3">
+                <label for="article-content" class="form-label">Makale İçeriği</label>
+                <div id="editor" style="height: 300px; background: #fff;"></div>
+                <textarea name="article-content" id="article-content" style="display:none;"></textarea>
+            </div>
+
+            
+
+            <!-- Etiketler -->
+            <div class="mb-3">
+                <label for="tags" class="form-label">Etiketler</label>
+                <input type="text" class="form-control" id="tags" name="tags"
+                    placeholder="Etiketleri virgül ile ayırarak girin">
+            </div>
+
+            <!-- Görsel Ekle -->
+            <div class="mb-3">
+                <label for="article-images" class="form-label">Görsel Ekle</label>
+                <input type="file" class="form-control" id="article-images" name="article-images[]" multiple>
+                <small class="form-text text-muted">Birden fazla görsel yüklemek için birden fazla dosya seçebilirsiniz.</small>
+            </div>
+            <div class="mb-3 w-100">
+                <!-- Slider Görseller -->
+                <h3 class="text-center mb-3">Slider Görseller</h3>
+                <div id="imageSlider" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://fastly.picsum.photos/id/231/300/100.jpg?hmac=knNfvYlMulW63fqgSthK42uGIHSLLaRcMCeoy_Wd_Sc"
+                                class="d-block w-100" alt="Eklenen Görsel">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://fastly.picsum.photos/id/919/300/100.jpg?hmac=YJKetTsvwgEu-ZODJW_MN6vTKBMFvKfUxAhjvFB2vsc"
+                                class="d-block w-100" alt="Eklenen Görsel">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://fastly.picsum.photos/id/219/300/100.jpg?hmac=XycqFFcWOf6IijZdXqPv6rCnJy_Roa21TUhAde8sxCA"
+                                class="d-block w-100" alt="Eklenen Görsel">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#imageSlider"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Önceki</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#imageSlider"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Sonraki</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Ekle Butonu -->
+            <div class="d-grid mb-4">
+                <button type="submit" class="btn btn-secondary">Ekle</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Quill JS -->
+    <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
+    <script>
+        // QuillJS Başlatma
+        var quill = new Quill('#editor', {
+            theme: 'snow', // Temayı belirtiyoruz (snow modern bir tema)
+            placeholder: 'Makale içeriğini buraya yazın...',
+            modules: {
+                toolbar: [
+                    [{ 'header': [1, 2, false] }],
+                    ['bold', 'italic', 'underline', 'strike'], // Kalın, İtalik vb.
+                    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                    ['link', 'image'], // Bağlantı ve Görsel
+                    ['clean'] // Temizleme
+                ]
+            }
+        });
+
+        // Form Gönderme ve Quill İçeriğini Almak
+        document.getElementById('blog-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Formun varsayılan submit işlemini durdur
+            document.getElementById('article-content').value = quill.root.innerHTML; // Quill içeriğini textarea'ya aktar
+            this.submit(); // Formu gönder
+        });
+    </script>
+</body>
+
+</html>
