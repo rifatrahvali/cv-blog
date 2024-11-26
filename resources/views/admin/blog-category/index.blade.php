@@ -7,7 +7,7 @@
         <div class="d-flex justify-content-between align-items-center mb-3">
             <a href="{{ route('admin.blog-category.create') }}" class="btn btn-secondary">Yeni Ekle</a>
             <h3 class="text-center flex-grow-1">Kategoriler</h3>
-            <a href="#" class="btn btn-secondary">Admin Kontrol Paneli</a>
+            <a href="{{ route('admin.index') }}" class="btn btn-secondary">Admin Kontrol Paneli</a>
         </div>
         <div class="table-responsive">
             <table class="table table-bordered table-hover align-middle text-center">

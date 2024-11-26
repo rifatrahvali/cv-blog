@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\AboutCardController;
+use App\Http\Controllers\Admin\BlogArticleController;
 use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\AdminAuthController;
@@ -46,13 +47,12 @@ Route::prefix('admin')->group(function () {
         Route::post('/blog-category/update/{id}', [BlogCategoryController::class, 'update'])->name('admin.blog-category.update');
         Route::post('/blog-category/delete/{id}', [BlogCategoryController::class, 'destroy'])->name('admin.blog-category.delete');
 
-        // Blog Article Routes
-        // Route::get('/blog-article', [BlogArticleController::class, 'index'])->name('admin.blog-article.index');
-        // Route::get('/blog-article/create', [BlogArticleController::class, 'create'])->name('admin.blog-article.create');
-        // Route::post('/blog-article/store', [BlogArticleController::class, 'store'])->name('admin.blog-article.store');
-        // Route::get('/blog-article/edit/{id}', [BlogArticleController::class, 'edit'])->name('admin.blog-article.edit');
-        // Route::post('/blog-article/update/{id}', [BlogArticleController::class, 'update'])->name('admin.blog-article.update');
-        // Route::post('/blog-article/delete/{id}', [BlogArticleController::class, 'destroy'])->name('admin.blog-article.delete');
+        Route::get('/blog-article', [BlogArticleController::class, 'index'])->name('admin.blog-article.index');
+        Route::get('/blog-article/create', [BlogArticleController::class, 'create'])->name('admin.blog-article.create');
+        Route::post('/blog-article/store', [BlogArticleController::class, 'store'])->name('admin.blog-article.store');
+        Route::get('/blog-article/edit/{blogArticle}', [BlogArticleController::class, 'edit'])->name('admin.blog-article.edit');
+        Route::put('/blog-article/update/{blogArticle}', [BlogArticleController::class, 'update'])->name('admin.blog-article.update');
+        Route::delete('/blog-article/delete/{blogArticle}', [BlogArticleController::class, 'destroy'])->name('admin.blog-article.delete');
 
         // Profile Card Routes
         // Listeleme
