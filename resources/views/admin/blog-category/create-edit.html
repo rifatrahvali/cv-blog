@@ -7,13 +7,36 @@
     <title>Admin Blog Kategori Ekle</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Tüm butonları köşeli yap */
+        .btn {
+            border-radius: 0 !important;
+        }
+
+        /* Input ve textarea köşelerini sıfırla */
+        .form-control,
+        .form-select {
+            border-radius: 0 !important;
+        }
+
+        /* Slider kontrol butonlarını köşeli yap */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            border-radius: 0 !important;
+        }
+
+        /* Slider içindeki görseller köşeli */
+        .carousel-inner img {
+            border-radius: 0 !important;
+        }
+    </style>
 </head>
 
 <body class="bg-light py-5">
     <div class="container">
-        <h2 class="text-center mb-4">Admin Blog Kategori Ekle </h2>
+        <h2 class="text-center mb-4">Admin Blog Kategori Ekle</h2>
         <form>
-            <!-- seçmek zorunlu değil. Alt Kategori eklersek bir önceki eklenen kategorileri seçmek için Açılır Liste -->
+            <!-- Kategori Seçimi -->
             <div class="mb-3">
                 <label for="categories" class="form-label">Kategori</label>
                 <select class="form-select" id="categories" name="categories">
@@ -36,8 +59,6 @@
                     placeholder="Kategori Tanımlaması Girin"></textarea>
             </div>
 
-
-
             <!-- Etiketler -->
             <div class="mb-3">
                 <label for="category-tags" class="form-label">Etiketler</label>
@@ -52,8 +73,8 @@
                 <small class="form-text text-muted">Birden fazla görsel yüklemek için birden fazla dosya seçebilirsiniz.</small>
             </div>
 
+            <!-- Slider Görseller -->
             <div class="mb-3 w-100">
-                <!-- Slider Görseller -->
                 <h3 class="text-center mb-3">Slider Görseller</h3>
                 <div id="imageSlider" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">

@@ -7,18 +7,71 @@
     <title>Admin Blog Listeleme</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card {
+            border-radius: 0;
+        }
+
+        .btn {
+            border-radius: 0;
+            /* Tüm butonların radius değeri sıfır */
+        }
+
+        .category-card {
+            border: 2px solid black;
+            margin-bottom: 15px;
+            padding: 10px;
+            transition: box-shadow 0.2s ease-in-out;
+        }
+
+        .category-card:hover {
+            box-shadow: 0 10px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-card {
+            border: 2px solid black;
+            transition: box-shadow 0.2s ease-in-out;
+        }
+
+        .badge {
+            border-radius: 0;
+        }
+
+        .blog-card:hover {
+            box-shadow: 0 10px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Select kutusunun ve açılır menü öğelerinin köşelerini sıfırla */
+        .form-select,
+        .form-select option {
+            border-radius: 0 !important;
+            /* Tüm köşeleri köşeli yap */
+            -webkit-appearance: none;
+            /* Varsayılan stil kaldır */
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        /* Açılır menünün hover ve focus durumunu kontrol et */
+        .form-select:focus {
+            box-shadow: none !important;
+            /* Focus durumunda gölge kaldır */
+            outline: none;
+            /* Dış çerçeve kaldır */
+        }
+    </style>
 </head>
 
 <body class="bg-light py-5">
     <div class="container">
         <!-- Üst Menü -->
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <a href="#" class="btn btn-secondary">Yeni Blog Ekle </a>
-            <h3 class="text-center flex-grow-1">Bloglar</h3>
+            <a href="#" class="btn btn-secondary">Yeni Blog Ekle</a>
+            <h3 class="text-center flex-grow-1">Blog Listesi</h3>
             <!-- Filtreleme -->
             <div class="d-flex align-items-center me-3">
                 <label for="category-filter" class="me-2">Kategori:</label>
-                <select id="category-filter" class="form-select w-auto">
+                <select id="category-filter" class="form-select w-auto custom-select">
                     <option value="">Tümü</option>
                     <option value="kategori1">Teknoloji</option>
                     <option value="kategori2">Sağlık</option>
