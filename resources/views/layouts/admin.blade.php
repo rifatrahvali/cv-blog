@@ -25,6 +25,17 @@
 
     <!-- Bootstrap JS -->
     <script src="{{ asset('assets/admin/js/bootstrap.bundle.min.js') }}"></script>
+
+
+    <!-- CKEditor CDN -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 </body>
 
 </html>

@@ -31,7 +31,7 @@
         <!-- İçerik -->
         <div class="mb-3">
             <label for="content" class="form-label">İçerik</label>
-            <textarea id="content" class="form-control" name="content" rows="6" placeholder="İçerik Girin">{{ old('content', $blogArticle->content ?? '') }}</textarea>
+            <textarea id="editor" class="form-control" name="content">{{ old('content', $blogArticle->content ?? '') }}</textarea>
         </div>
 
         <!-- Görünürlük Durumu -->
@@ -71,4 +71,5 @@
         </div>
     </form>
 </div>
+
 @endsection
