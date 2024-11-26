@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    @include('layouts.partials.frontend.header') <!-- Header buradan geliyor -->
+    @include('layouts.partials.frontend.header') <!-- Header -->
     <div class="line mb-3"></div>
     <div class="row">
 
