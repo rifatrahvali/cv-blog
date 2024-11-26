@@ -21,7 +21,7 @@ Route::get('/', [CVPageController::class, 'index'])->name('cv.index');
 // All Blogs - Yazılar - Route
 Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
 Route::get('/blogs/{slug}', [BlogController::class, 'show'])->name('blogs.show');
-Route::get('/category/{slug}', [BlogController::class, 'category'])->name('blogs.category');
+Route::get('/blogs/category/{slug}', [BlogController::class, 'filterByCategory'])->name('blogs.byCategory');
 // Support - Destek - Route
 
 Route::prefix('admin')->group(function () {

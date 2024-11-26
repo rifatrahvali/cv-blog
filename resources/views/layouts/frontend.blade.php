@@ -6,17 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Blog</title>
 
+    <!-- CSS Dosyaları -->
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/styles.css') }}?v={{ time() }}">
 </head>
 
 <body>
-    <div class="content">
-        @yield('content') <!-- İçerik Alanı -->
+    <div id="app">
+        @yield('content')
     </div>
-    <script src="{{ asset('assets/frontend/js/bootstrap.bundle.min.css') }}"></script>
 
+    <!-- JavaScript Dosyaları -->
+    <script src="{{ asset('assets/frontend/js/bootstrap.bundle.min.js') }}" defer></script>
 </body>
 
 </html>

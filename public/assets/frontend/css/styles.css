@@ -6,8 +6,12 @@ body {
     margin: 0 auto;
     padding: 20px;
 }
-.header, .footer {
+/* .header, .footer {
     text-align: center;
+} */
+
+.card{
+    border-radius: 0;
 }
 .profile-pic {
     width: 150px;
