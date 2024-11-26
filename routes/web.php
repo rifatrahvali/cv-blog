@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\AboutCardController;
+use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminIndexController;
@@ -26,11 +27,33 @@ Route::prefix('admin')->group(function () {
     Route::get('/register', [AdminAuthController::class, 'registerForm'])->name('admin.auth.register');
     Route::post('/register', [AdminAuthController::class, 'register']);
 
+
+
     Route::middleware('admin')->group(function () {
-        Route::get('/', function () {return view('admin.index');})->name('admin.index');
-        // CV - Frontend Index Routes
+
+
+        Route::get('/', function () {
+            return view('admin.index');
+        })->name('admin.index');
+        // CV - Frontend Index Control Routes
         Route::get('/site-settings', [SiteSettingController::class, 'index'])->name('site-settings.index');
         Route::post('/site-settings', [SiteSettingController::class, 'storeOrUpdate'])->name('site-settings.storeOrUpdate');
+
+        Route::get('/blog-category', [BlogCategoryController::class, 'index'])->name('admin.blog-category.index');
+        Route::get('/blog-category/create', [BlogCategoryController::class, 'create'])->name('admin.blog-category.create');
+        Route::post('/blog-category/store', [BlogCategoryController::class, 'store'])->name('admin.blog-category.store');
+        Route::get('/blog-category/edit/{id}', [BlogCategoryController::class, 'edit'])->name('admin.blog-category.edit');
+        Route::post('/blog-category/update/{id}', [BlogCategoryController::class, 'update'])->name('admin.blog-category.update');
+        Route::post('/blog-category/delete/{id}', [BlogCategoryController::class, 'destroy'])->name('admin.blog-category.delete');
+
+        // Blog Article Routes
+        // Route::get('/blog-article', [BlogArticleController::class, 'index'])->name('admin.blog-article.index');
+        // Route::get('/blog-article/create', [BlogArticleController::class, 'create'])->name('admin.blog-article.create');
+        // Route::post('/blog-article/store', [BlogArticleController::class, 'store'])->name('admin.blog-article.store');
+        // Route::get('/blog-article/edit/{id}', [BlogArticleController::class, 'edit'])->name('admin.blog-article.edit');
+        // Route::post('/blog-article/update/{id}', [BlogArticleController::class, 'update'])->name('admin.blog-article.update');
+        // Route::post('/blog-article/delete/{id}', [BlogArticleController::class, 'destroy'])->name('admin.blog-article.delete');
+
         // Profile Card Routes
         // Listeleme
         Route::get('/profile-card', [ProfileCardController::class, 'index'])->name('profile-card.index');
