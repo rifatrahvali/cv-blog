@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-3">
     @if (session('success'))
         <div class="alert alert-success text-center alert-dismissible fade show" role="alert">
             <strong>Mesaj: </strong> {{ session('success') }}

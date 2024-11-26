@@ -16,31 +16,45 @@
 }
 
 .btn-primary {
-    background-color: #333333; /* Açık siyah (koyu gri) arka plan */
-    color: #FFFFFF; /* Beyaz yazı */
-    border-color: #333333; /* Çerçeve */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Hover geçişleri */
+    background-color: #333333;
+    /* Açık siyah (koyu gri) arka plan */
+    color: #FFFFFF;
+    /* Beyaz yazı */
+    border-color: #333333;
+    /* Çerçeve */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Hover geçişleri */
 }
 
 .btn-primary:hover {
-    background-color: #E0E0E0; /* Hoverda açık gri */
-    color: #000000; /* Hoverda siyah yazı */
-    border-color: #E0E0E0; /* Hoverda çerçeve */
+    background-color: #E0E0E0;
+    /* Hoverda açık gri */
+    color: #000000;
+    /* Hoverda siyah yazı */
+    border-color: #E0E0E0;
+    /* Hoverda çerçeve */
 }
 
 /* Admin Butonu */
 .btn-admin {
-    background-color: #FFFFFF; /* Normalde beyaz arkaplan */
-    color: #000000; /* Siyah yazı */
-    border: 1px solid #6C757D; /* Hafif gri çerçeve */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Geçiş efekti */
+    background-color: #FFFFFF;
+    /* Normalde beyaz arkaplan */
+    color: #000000;
+    /* Siyah yazı */
+    border: 1px solid #6C757D;
+    /* Hafif gri çerçeve */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Geçiş efekti */
 }
 
 /* Hover Durumu */
 .btn-admin:hover {
-    background-color: #c9d7e4; /* Hoverda gri ton */
-    color: #000000 !important; /* Yazı hoverda beyaz olur */
-    border-color: #6C757D; /* Çerçeve hover rengini takip eder */
+    background-color: #c9d7e4;
+    /* Hoverda gri ton */
+    color: #000000 !important;
+    /* Yazı hoverda beyaz olur */
+    border-color: #6C757D;
+    /* Çerçeve hover rengini takip eder */
 }
 
 .table-container {
@@ -52,14 +66,72 @@
     padding: 1.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-.table th, .table td {
+
+.table th,
+.table td {
     vertical-align: middle;
     text-align: center;
 }
+
 .table img {
     border-radius: 8px;
     object-fit: cover;
 }
-.action-buttons a, .action-buttons button {
+
+.action-buttons a,
+.action-buttons button {
     margin: 0 5px;
+}
+
+/* Tüm butonları köşeli yap */
+.btn {
+    border-radius: 0 !important;
+}
+
+/* Badge'leri köşeli yap */
+.badge {
+    border-radius: 0 !important;
+}
+
+/* Tablo hücrelerini köşeli yap */
+.table {
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    border-radius: 0 !important;
+}
+
+/* Form içindeki tüm öğeleri köşeli yap */
+.form-control,
+.form-select {
+    border-radius: 0 !important;
+}
+
+/* Kartların köşelerini sıfırla */
+.card {
+    border-radius: 0 !important;
+}
+
+/* Tüm butonları köşeli yap */
+.btn {
+    border-radius: 0 !important;
+}
+
+/* Input ve textarea köşelerini sıfırla */
+.form-control,
+.form-select {
+    border-radius: 0 !important;
+}
+
+/* Slider kontrol butonlarını köşeli yap */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    border-radius: 0 !important;
+}
+
+/* Slider içindeki görseller köşeli */
+.carousel-inner img {
+    border-radius: 0 !important;
 }

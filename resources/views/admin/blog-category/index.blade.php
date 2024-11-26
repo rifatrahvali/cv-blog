@@ -1,48 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kategori Listesi</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* Tüm butonları köşeli yap */
-        .btn {
-            border-radius: 0 !important;
-        }
 
-        /* Badge'leri köşeli yap */
-        .badge {
-            border-radius: 0 !important;
-        }
+@extends('layouts.admin')
 
-        /* Tablo hücrelerini köşeli yap */
-        .table {
-            border-collapse: collapse;
-        }
-
-        .table th,
-        .table td {
-            border-radius: 0 !important;
-        }
-
-        /* Form içindeki tüm öğeleri köşeli yap */
-        .form-control,
-        .form-select {
-            border-radius: 0 !important;
-        }
-
-        /* Kartların köşelerini sıfırla */
-        .card {
-            border-radius: 0 !important;
-        }
-    </style>
-</head>
-
-<body class="bg-light py-5">
-    <div class="container">
+@section('content')
+    <div class="container mt-3">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <a href="{{ route('admin.blog-category.create') }}" class="btn btn-secondary">Yeni Ekle</a>
             <h3 class="text-center flex-grow-1">Kategoriler</h3>
@@ -88,8 +49,4 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
-</html>
+@endsection

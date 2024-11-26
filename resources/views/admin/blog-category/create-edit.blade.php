@@ -1,38 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Blog Kategori {{ isset($category) ? 'Güncelle' : 'Ekle' }}</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* Tüm butonları köşeli yap */
-        .btn {
-            border-radius: 0 !important;
-        }
+@extends('layouts.admin')
 
-        /* Input ve textarea köşelerini sıfırla */
-        .form-control,
-        .form-select {
-            border-radius: 0 !important;
-        }
-
-        /* Slider kontrol butonlarını köşeli yap */
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            border-radius: 0 !important;
-        }
-
-        /* Slider içindeki görseller köşeli */
-        .carousel-inner img {
-            border-radius: 0 !important;
-        }
-    </style>
-</head>
-
-<body class="bg-light py-5">
+@section('content')
     <div class="container">
         <h2 class="text-center mb-4">Admin Blog Kategori {{ isset($category) ? 'Güncelle' : 'Ekle' }}</h2>
         <form method="POST" action="{{ isset($category) ? route('admin.blog-category.update', $category->id) : route('admin.blog-category.store') }}" enctype="multipart/form-data">
@@ -75,7 +44,7 @@
             <!-- Kategori İçeriği -->
             <div class="mb-3">
                 <label for="category-description" class="form-label">Kategori Tanımlaması</label>
-                <textarea class="form-control" id="category-description" name="description" rows="5" placeholder="Kategori Tanımlaması Girin">{{ old('description', isset($category) ? $category->description : '') }}</textarea>
+                <input type="text" class="form-control" id="category-description" name="description" placeholder="Kategori Tanımlaması Girin" value="{{ old('description', isset($category) ? $category->description : '') }}">
             </div>
 
             <!-- Etiketler -->
@@ -128,9 +97,4 @@
             </div>
         </form>
     </div>
-
-    <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
-</html>
+@endsection
