@@ -1,4 +1,3 @@
-
 @extends('layouts.frontend')
 @section('content')
 <div class="container">
@@ -13,8 +12,6 @@
                     @foreach ($blogs as $blog)
                         <div class="col-md-6">
                             <div class="card blog-card" style="border: 2px solid black;">
-                                <img src="{{ $blog->image ? asset('storage/' . $blog->image) : 'https://via.placeholder.com/300x150' }}"
-                                    class="card-img-top" alt="Blog Görseli">
                                 <div class="card-body">
                                     <h4 class="card-title">{{ $blog->title }}</h4>
                                     <div class="d-flex justify-content-between">

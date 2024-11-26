@@ -20,12 +20,18 @@ class BlogController extends Controller
         // Tüm kategorileri ve her bir kategorideki blog sayısını al
         $categories = BlogCategory::withCount('articles')->get();
 
-        return view('components.frontend.blog.all-blogs', compact('blogs', 'categories','siteSettings'));
+        return view('components.frontend.blog.all-blogs', compact('blogs', 'categories', 'siteSettings'));
     }
     public function show($slug)
     {
-        $blog = BlogArticle::where('slug', $slug)->with('category')->firstOrFail();
-        return view('components.frontend.blog.blog-detail', compact('blog'));
+        $blog = BlogArticle::where('slug', $slug)
+            ->with('category') // Kategori ilişkisi
+            ->firstOrFail();
+        $siteSettings = SiteSetting::first();
+        // Tüm kategorileri ve her bir kategorideki blog sayısını al
+        $categories = BlogCategory::withCount('articles')->get();
+
+        return view('components.frontend.blog.blog-detail', compact('blog', 'categories', 'siteSettings'));
     }
 
     public function filterByCategory($slug)
@@ -43,17 +49,7 @@ class BlogController extends Controller
         $categories = BlogCategory::withCount('articles')->get();
 
         // Görünümü döndür
-        return view('components.frontend.blog.filtered-blogs', compact('blogs', 'category', 'categories','siteSettings'));
+        return view('components.frontend.blog.filtered-blogs', compact('blogs', 'category', 'categories', 'siteSettings'));
     }
 
-    public function category($slug)
-    {
-        $category = BlogCategory::where('slug', $slug)->firstOrFail();
-        $blogs = BlogArticle::where('category_id', $category->id)
-            ->where('is_visible', true)
-            ->orderBy('created_at', 'desc')
-            ->get();
-
-        return view('components.frontend.blog.filtered-blogs', compact('category', 'blogs'));
-    }
 }
