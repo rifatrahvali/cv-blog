@@ -61,30 +61,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($categories as $category)
+                    @foreach ($categories as $category)
                         <tr>
                             <td>{{ $category->id }}</td>
                             <td>{{ $category->name }}</td>
                             <td>{{ $category->parent ? $category->parent->name : 'Yok' }}</td>
                             <td>
-                                <span class="badge {{ $category->is_active ? 'bg-success' : 'bg-danger' }}">
-                                    {{ $category->is_active ? 'Aktif' : 'Pasif' }}
+                                <span class="badge {{ $category->is_visible ? 'bg-success' : 'bg-danger' }}">
+                                    {{ $category->is_visible ? 'Görünür' : 'Görünmez' }}
                                 </span>
                             </td>
                             <td>{{ $category->created_at->format('Y-m-d') }}</td>
                             <td>
-                                <a href="{{ route('admin.blog-category.edit', $category->id) }}" class="btn btn-warning btn-sm">Düzenle</a>
-                                <form action="{{ route('admin.blog-category.delete', $category->id) }}" method="POST" class="d-inline">
+                                <a href="{{ route('admin.blog-category.edit', $category->id) }}"
+                                    class="btn btn-warning btn-sm">Düzenle</a>
+                                <form action="{{ route('admin.blog-category.delete', $category->id) }}" method="POST"
+                                    class="d-inline">
                                     @csrf
                                     <button type="submit" class="btn btn-danger btn-sm">Sil</button>
                                 </form>
                             </td>
                         </tr>
-                    @empty
-                        <tr>
-                            <td colspan="6">Hiç kategori bulunamadı.</td>
-                        </tr>
-                    @endforelse
+                    @endforeach
                 </tbody>
             </table>
         </div>

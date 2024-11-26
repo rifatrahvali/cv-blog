@@ -60,6 +60,18 @@
                 <input type="text" class="form-control" id="category-name" name="name" placeholder="Kategori Adını Girin" value="{{ old('name', isset($category) ? $category->name : '') }}">
             </div>
 
+            <!-- Görünürlük Durumu -->
+            <div class="mb-3">
+                <label for="is_visible" class="form-label">Görünürlük Durumu</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="is_visible" name="is_visible" value="1" 
+                        {{ isset($category) && $category->is_visible ? 'checked' : '' }}>
+                    <label class="form-check-label" for="is_visible">
+                        Görünür
+                    </label>
+                </div>
+            </div>
+
             <!-- Kategori İçeriği -->
             <div class="mb-3">
                 <label for="category-description" class="form-label">Kategori Tanımlaması</label>

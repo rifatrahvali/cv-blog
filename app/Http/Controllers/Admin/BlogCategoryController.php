@@ -45,6 +45,7 @@ class BlogCategoryController extends Controller
             'tags' => $request->tags,
             'image' => $request->file('image') ? $request->file('image')->store('category_images') : null,
             'parent_id' => $request->parent_id,
+            'is_visible' => $request->has('is_visible') ? true : false,
         ]);
 
         return redirect()->route('admin.blog-category.index')->with('success', 'Kategori başarıyla eklendi.');
@@ -83,6 +84,7 @@ class BlogCategoryController extends Controller
             'tags' => $request->tags,
             'image' => $request->file('image') ? $request->file('image')->store('category_images') : $category->image,
             'parent_id' => $request->parent_id,
+            'is_visible' => $request->has('is_visible') ? true : false,
         ]);
 
         return redirect()->route('admin.blog-category.index')->with('success', 'Kategori başarıyla güncellendi.');
