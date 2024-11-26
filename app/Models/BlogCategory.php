@@ -22,4 +22,9 @@ class BlogCategory extends Model
     {
         return $this->belongsTo(BlogCategory::class, 'parent_id');
     }
+    // Blog makaleleriyle ilişki
+    public function articles()
+    {
+        return $this->hasMany(BlogArticle::class, 'category_id');
+    }
 }

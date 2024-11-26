@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminIndexController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CertificateCardController;
 use App\Http\Controllers\CourseCardController;
 use App\Http\Controllers\CVPageController;
@@ -13,25 +14,25 @@ use App\Http\Controllers\ExperienceCardController;
 use App\Http\Controllers\LearnedFromEducationCardController;
 use App\Http\Controllers\LearnedFromExperiencesCardController;
 use App\Http\Controllers\ProfileCardController;
-
 use Illuminate\Support\Facades\Route;
-Route::get('/test', function () {
-    return 'Test başarılı';
-});
+
 // Index - CV - Route
 Route::get('/', [CVPageController::class, 'index'])->name('cv.index');
+// All Blogs - Yazılar - Route
+Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
+Route::get('/blogs/{slug}', [BlogController::class, 'show'])->name('blogs.show');
+Route::get('/category/{slug}', [BlogController::class, 'category'])->name('blogs.category');
+// Support - Destek - Route
 
 Route::prefix('admin')->group(function () {
     Route::get('/login', [AdminAuthController::class, 'loginForm'])->name('admin.auth.login');
     Route::post('/login', [AdminAuthController::class, 'login']);
     Route::post('/logout', [AdminAuthController::class, 'logout'])->name('admin.auth.logout');
-    Route::get('/register', [AdminAuthController::class, 'registerForm'])->name('admin.auth.register');
-    Route::post('/register', [AdminAuthController::class, 'register']);
-
-
 
     Route::middleware('admin')->group(function () {
 
+        Route::get('/register', [AdminAuthController::class, 'registerForm'])->name('admin.auth.register');
+        Route::post('/register', [AdminAuthController::class, 'register']);
 
         Route::get('/', function () {
             return view('admin.index');
