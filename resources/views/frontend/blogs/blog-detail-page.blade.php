@@ -6,8 +6,7 @@
     <div class="row">
         <!-- Sol -->
         <div class="col-md-8">
-            <h2 class="mb-4">Bloglar</h2>
-            @include('components.frontend.blog.all-blogs-card')
+            @include('components.frontend.blog.blog-detail-card')
         </div>
 
         <!-- Sağ -->
