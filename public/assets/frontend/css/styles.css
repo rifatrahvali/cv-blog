@@ -56,3 +56,23 @@ html {
 .right-align {
     text-align: right;
 }
+ul.pagination {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-block; /* Aynı hizada göstermek için */
+    vertical-align: middle;
+}
+
+.pagination .page-link {
+    border: none !important;
+}
+
+.pagination .page-item {
+    display: inline-block;
+    margin: 0;
+}
+
+h2 {
+    margin: 0;
+    vertical-align: middle;
+}

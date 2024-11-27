@@ -6,7 +6,15 @@
     <div class="row">
         <!-- Sol -->
         <div class="col-md-8">
-            <h2 class="mb-4">Bloglar</h2>
+            <!-- Başlık & Pagination -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="">Bloglar</h2>
+                <!-- Pagination -->
+                <div>
+                    <!-- Pagination & Sayfalama -->
+                    @include('components.frontend.blog.pagination')
+                </div>
+            </div>
             @include('components.frontend.blog.all-blogs-card')
         </div>
 

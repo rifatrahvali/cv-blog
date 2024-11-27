@@ -12,10 +12,16 @@ class BlogController extends Controller
     {
         // Tüm blogları ilişkili kategorileriyle birlikte al
         $siteSettings = SiteSetting::first();
+        //$blogs = BlogArticle::with('category')
+        //    ->where('is_visible', true) // Sadece görünür olanları al
+        //    ->orderBy('created_at', 'desc')
+        //    ->paginate(4); // Sayfalama için 4 kayıt göster
+        // ->get();
+
         $blogs = BlogArticle::with('category')
-            ->where('is_visible', true) // Sadece görünür olanları al
+            ->where('is_visible', true)
             ->orderBy('created_at', 'desc')
-            ->get();
+            ->paginate(4); // Sayfa başına 4 kayıt
 
         // Tüm kategorileri ve her bir kategorideki blog sayısını al
         $categories = BlogCategory::withCount('articles')->get();
@@ -45,7 +51,8 @@ class BlogController extends Controller
         $blogs = BlogArticle::where('category_id', $category->id)
             ->where('is_visible', true)
             ->orderBy('created_at', 'desc')
-            ->get();
+            ->paginate(4); // Sayfalama için 4 kayıt göster
+        // ->get();
 
         // Kategorileri listele (sidebar için)
         $categories = BlogCategory::withCount('articles')->get();
