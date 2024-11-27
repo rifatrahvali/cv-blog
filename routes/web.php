@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\AboutCardController;
+use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\BlogArticleController;
 use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\SiteSettingController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\ExperienceCardController;
 use App\Http\Controllers\LearnedFromEducationCardController;
 use App\Http\Controllers\LearnedFromExperiencesCardController;
 use App\Http\Controllers\ProfileCardController;
+
 use Illuminate\Support\Facades\Route;
 
 // Index - CV - Route
@@ -28,15 +30,17 @@ Route::prefix('admin')->group(function () {
     Route::get('/login', [AdminAuthController::class, 'loginForm'])->name('admin.auth.login');
     Route::post('/login', [AdminAuthController::class, 'login']);
     Route::post('/logout', [AdminAuthController::class, 'logout'])->name('admin.auth.logout');
+    
+    Route::get('/profile', [AdminProfileController::class, 'profile'])->name('admin.profile');
+    Route::post('/profile/update-password', [AdminProfileController::class, 'updatePassword'])->name('admin.updatePassword');
+    Route::post('/admins/update-role/{id}', [AdminProfileController::class, 'updateRole'])->name('admin.updateRole');
 
     Route::middleware('admin')->group(function () {
 
         Route::get('/register', [AdminAuthController::class, 'registerForm'])->name('admin.auth.register');
         Route::post('/register', [AdminAuthController::class, 'register']);
 
-        Route::get('/', function () {
-            return view('admin.index');
-        })->name('admin.index');
+        Route::get('/', [AdminIndexController::class, 'index'])->name('admin.index');
         // CV - Frontend Index Control Routes
         Route::get('/site-settings', [SiteSettingController::class, 'index'])->name('site-settings.index');
         Route::post('/site-settings', [SiteSettingController::class, 'storeOrUpdate'])->name('site-settings.storeOrUpdate');

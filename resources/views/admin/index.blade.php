@@ -7,6 +7,16 @@
         <div class="col-md-4 col-sm-6">
             <div class="card text-center h-100">
                 <div class="card-body">
+                    <h5 class="card-title">Yetkili Kartı</h5>
+                    <p class="card-text">Yetkili bilgilerinin tutulduğu kart alanıdır.</p>
+                    <a href="{{ route('admin.profile') }}" class="btn btn-primary">Yetkili Kartına Git</a>
+                </div>
+            </div>
+        </div>
+        <!-- Kart 1 -->
+        <div class="col-md-4 col-sm-6">
+            <div class="card text-center h-100">
+                <div class="card-body">
                     <h5 class="card-title">Blog Kategori İsim Kartı</h5>
                     <p class="card-text">Blog Kategorileri bilgilerinin tutulduğu kart alanıdır.</p>
                     <a href="{{ route('admin.blog-category.index') }}" class="btn btn-primary">Blog Kategorileri Kartına Git</a>
