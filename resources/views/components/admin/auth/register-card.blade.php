@@ -1,11 +1,7 @@
-<link rel="stylesheet" href="{{ asset('assets/admin/css/bootstrap.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/admin/css/styles.css') }}">
-<!-- Bootstrap Icons -->
-<link rel="stylesheet" href="{{ asset('assets/admin/css/bootstrap-icons.css') }}">
 <div class="container d-flex justify-content-center mt-5">
     <div class="card shadow-sm p-4"
         style="width: 50%; background-color: #f8f9fa; border-radius: 12px; border: 1px solid #e3e6e9;">
-        <h2 class="text-center mb-4">Admin Kayıt</h2>
+        <h2 class="text-center mb-4">Admin Kayıt YENİİİ</h2>
 
         <form method="POST" action="{{ route('admin.auth.register') }}">
             @csrf

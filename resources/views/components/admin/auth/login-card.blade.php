@@ -1,19 +1,7 @@
-<!-- <form method="POST" action="{{ route('admin.auth.login') }}">
-    @csrf
-    <input type="text" name="username" placeholder="Kullanıcı Adı" required>
-    <input type="password" name="password" placeholder="Şifre" required>
-    <button type="submit">Giriş Yap</button>
-</form> -->
-
-<link rel="stylesheet" href="{{ asset('assets/admin/css/bootstrap.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/admin/css/styles.css') }}">
-<!-- Bootstrap Icons -->
-<link rel="stylesheet" href="{{ asset('assets/admin/css/bootstrap-icons.css') }}">
-
 <div class="container d-flex justify-content-center mt-5">
     <div class="card shadow-sm p-4"
         style="width: 40%; background-color: #f8f9fa; border-radius: 12px; border: 1px solid #e3e6e9;">
-        <h2 class="text-center mb-4">Admin Giriş</h2>
+        <h2 class="text-center mb-4">Admin Giriş YENİ</h2>
 
         <form method="POST" action="{{ route('admin.auth.login') }}">
             @csrf
@@ -28,7 +16,8 @@
             <!-- Şifre -->
             <div class="mb-3">
                 <label for="password" class="form-label"><strong>Şifre</strong></label>
-                <input type="password" id="password" name="password" class="form-control" placeholder="Şifre" required>
+                <!-- <input type="password" id="password" name="password" class="form-control" placeholder="Şifre" required> -->
+                <input type="password" id="password" name="password" class="form-control" placeholder="Şifre" required autocomplete="off">
             </div>
 
             <!-- Beni Hatırla -->

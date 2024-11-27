@@ -11,7 +11,7 @@ class AdminAuthController extends Controller
 {
     public function loginForm()
     {
-        return view('auth.login');
+        return view('auth.login-page');
     }
 
     public function login(Request $request)
@@ -20,6 +20,7 @@ class AdminAuthController extends Controller
             'username' => 'required|string|max:255',
             'password' => 'required|string|min:8',
         ]);
+        
 
         if (Auth::guard('admin')->attempt($credentials, $request->remember)) {
             $request->session()->regenerate();
@@ -31,7 +32,7 @@ class AdminAuthController extends Controller
 
     public function registerForm()
     {
-        return view('auth.register');
+        return view('auth.register-page');
     }
 
     public function register(Request $request)
@@ -62,6 +63,7 @@ class AdminAuthController extends Controller
         Auth::guard('admin')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+        
         return redirect()->route('admin.auth.login');
     }
 }
