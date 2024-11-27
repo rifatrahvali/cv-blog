@@ -1,4 +1,4 @@
-<div class="card text-end" style="border-radius: 0; border: 2px solid black;">
+<div class="card text-end  bg-light" style="border-radius: 0; border: 2px solid black;">
     <div class="card-body">
         <h3 class="card-title">Kurs</h3>
         @if (!empty($courseCard) && $courseCard->count())

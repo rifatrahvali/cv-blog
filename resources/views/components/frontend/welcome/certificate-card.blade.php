@@ -1,4 +1,4 @@
-<div class="card" style="border-radius: 0; border: 2px solid black;">
+<div class="card  bg-light" style="border-radius: 0; border: 2px solid black;">
     <div class="card-body">
         <h3 class="card-title">Sertifikalar</h3>
         @if (!empty($certificateCard) && $certificateCard->count())

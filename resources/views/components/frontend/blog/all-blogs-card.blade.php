@@ -1,7 +1,7 @@
 <div class="row g-4">
     @foreach ($blogs as $blog)
         <div class="col-md-6">
-            <div class="card blog-card" style="border: 2px solid black;">
+            <div class="card blog-card bg-light" style="border: 2px solid black;">
                 <div class="card-body">
                     <h4 class="card-title">{{ $blog->title }}</h4>
                     <div class="d-flex justify-content-between">
@@ -11,7 +11,7 @@
                     <p class="card-text">
                         {{ Str::limit(strip_tags(html_entity_decode($blog->content)), 150, '...') }}
                     </p>
-                    <a href="{{ route('blogs.show', $blog->slug) }}" class="btn btn-secondary">Devamını
+                    <a href="{{ route('blogs.show', $blog->slug) }}" class="btn btn-secondary" style="border-radius:0;">Devamını
                         Oku</a>
                 </div>
             </div>

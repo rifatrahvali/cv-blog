@@ -10,7 +10,7 @@
 
     <title>Blog</title>
 </head>
-<body>
+<body class="bg-light">
     
     @yield('blog-content')
 

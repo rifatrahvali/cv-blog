@@ -1,5 +1,5 @@
 <div class="card mb-4" style="border: 2px solid black; border-radius: 0;">
-    <div class="card-body">
+    <div class="card-body bg-light">
         <h1 class="card-title">{{ $blog->title }}</h1>
         <p class="text-muted">
             Yayınlanma Tarihi: {{ $blog->created_at->format('Y-m-d') }}

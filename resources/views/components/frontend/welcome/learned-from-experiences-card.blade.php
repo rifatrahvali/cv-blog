@@ -1,5 +1,5 @@
-<div class="col-md-12 mb-3">
-    <div class="card" style="border-radius: 0; border: 2px solid black;">
+<div class="col-md-12 bg-light mb-3">
+    <div class="card bg-light" style="border-radius: 0; border: 2px solid black;">
         <div class="card-body">
             <h3 class="card-title">Öğrenim</h3>
             <p class="card-text">

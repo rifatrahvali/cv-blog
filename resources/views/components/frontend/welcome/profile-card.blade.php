@@ -1,14 +1,17 @@
-@if(optional($profileCard)->profile_image)
-    <img src="{{ asset('storage/' . $profileCard->profile_image) }}" alt="Profil Resmi" class="card-img-top profile-pic">
-@else
-    <span class="text-muted">Yok</span>
-@endif
-<div class="card-body">
+<div class="bg-light  bg-light">
+    @if(optional($profileCard)->profile_image)
+        <img src="{{ asset('storage/' . $profileCard->profile_image) }}" alt="Profil Resmi"
+            class="card-img-top profile-pic">
+    @else
+        <span class="text-muted">Yok</span>
+    @endif
+</div>
+<div class="card-body bg-light">
     <h4 class="card-title"><b>{{ $profileCard->name ?? '' }}</b></h4>
     <p class="card-text">{{ $profileCard->title ?? '' }}</p>
 </div>
-<ul class="list-group list-group-flush d-flex">
-    <li class="list-group-item social-icons ">
+<ul class="list-group list-group-flush d-flex bg-light">
+    <li class="list-group-item social-icons bg-light">
         <a href="#">
             {{ $profileCard->username ?? '' }}
         </a>
@@ -29,10 +32,10 @@
         </a>
     </li>
 </ul>
-<div class="card-body">
+<div class="card-body bg-light">
     <div class="social-icons">
         <a href="mailto:{{ $profileCard->email ?? '' }}" class="card-link">
-        {{ $profileCard->email ?? '' }} <i class="bi bi-envelope"></i>
+            {{ $profileCard->email ?? '' }} <i class="bi bi-envelope"></i>
         </a>
     </div>
 </div>
