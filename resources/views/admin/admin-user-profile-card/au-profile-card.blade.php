@@ -20,7 +20,7 @@
                                     <h3>{{ $admin->name }} {{ $admin->surname }}</h3>
                                     <p class="text-muted">{{ $admin->email }}</p>
                                     <p><strong>Username:</strong> {{ $admin->username }}</p>
-                                    <p><strong>Role:</strong> {{ ucfirst($admin->role) }}</p>
+                                    <p><strong>Role:</strong> <span class="badge bg-success">{{ ucfirst($admin->role) }}</span></p>
                                 </div>
                             </div>
                         
@@ -38,6 +38,22 @@
                         <!-- Bilgileri Güncelle Kartı -->
                         <div class="card">
                             <!-- Bilgiler Burada Güncellenecek -->
+                            <form action="{{ route('admin.updateProfile') }}" method="POST">
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Ad</label>
+                                    <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $admin->name) }}" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="surname" class="form-label">Soyad</label>
+                                    <input type="text" name="surname" id="surname" class="form-control" value="{{ old('surname', $admin->surname) }}" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" name="email" id="email" class="form-control" value="{{ old('email', $admin->email) }}" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Güncelle</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -111,7 +127,11 @@
                                             </td>
                                             <td>
                                                 @if($adminItem->id !== $admin->id)
-                                                <button class="btn btn-danger btn-sm">Sil</button>
+                                                    <form action="{{ route('admin.delete', $adminItem->id) }}" method="POST" onsubmit="return confirm('Bu admini silmek istediğinize emin misiniz?');">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                                                    </form>
                                                 @endif
                                             </td>
                                         </tr>
@@ -124,10 +144,6 @@
                 </div>
             </div>
         </div>
-        </div>
-        <!-- Diğer Adminler Tablosu -->
-        <div class="col-md-12 mt-5">
-            
         </div>
     </div>
 </div>

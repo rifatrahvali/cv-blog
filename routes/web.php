@@ -33,7 +33,9 @@ Route::prefix('admin')->group(function () {
     
     Route::get('/profile', [AdminProfileController::class, 'profile'])->name('admin.profile');
     Route::post('/profile/update-password', [AdminProfileController::class, 'updatePassword'])->name('admin.updatePassword');
+    Route::post('/admin/profile/update', [AdminProfileController::class, 'profileUpdate'])->name('admin.updateProfile');
     Route::post('/admins/update-role/{id}', [AdminProfileController::class, 'updateRole'])->name('admin.updateRole');
+    Route::delete('/admin/{id}/delete', [AdminProfileController::class, 'deleteAdmin'])->name('admin.delete');
 
     Route::middleware('admin')->group(function () {
 
