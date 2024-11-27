@@ -6,7 +6,7 @@
     <div class="row">
         <!-- Sol -->
         <div class="col-md-8">
-            <h2>Kategori: {{ $category->name }}</h2>
+            <h2 class="mb-4">Kategori: {{ $category->name }}</h2>
             @include('components.frontend.blog.all-blogs-card')
         </div>
 
