@@ -20,7 +20,8 @@ class BlogController extends Controller
         // Tüm kategorileri ve her bir kategorideki blog sayısını al
         $categories = BlogCategory::withCount('articles')->get();
 
-        return view('components.frontend.blog.all-blogs', compact('blogs', 'categories', 'siteSettings'));
+        // return view('components.frontend.blog.all-blogs', compact('blogs', 'categories', 'siteSettings'));
+        return view('frontend.blogs.all-blogs-page', compact('blogs', 'categories', 'siteSettings'));
     }
     public function show($slug)
     {

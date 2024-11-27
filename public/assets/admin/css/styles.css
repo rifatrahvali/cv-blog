@@ -5,6 +5,11 @@
     transition: transform 0.2s ease-in-out;
 } */
 
+html {
+    overflow-y: scroll;
+    /* Her zaman dikey kaydırma çubuğunu göster */
+}
+
 /* Butonların tamamen köşeli olması */
 .container .btn, 
 .container .btn.pages {

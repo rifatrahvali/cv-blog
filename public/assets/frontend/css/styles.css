@@ -1,6 +1,10 @@
 body {
     font-family: Arial, sans-serif;
 }
+html {
+    overflow-y: scroll;
+    /* Her zaman dikey kaydırma çubuğunu göster */
+}
 .container {
     max-width: 960px;
     margin: 0 auto;

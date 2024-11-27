@@ -29,6 +29,7 @@
                 </div>
             </div>
             
+            
             <!-- Kategori Listesi -->
             <div class="col-md-4">
                 <h2 class="mb-4">Kategoriler</h2>
