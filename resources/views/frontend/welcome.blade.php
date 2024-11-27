@@ -5,7 +5,6 @@
     @include('layouts.partials.frontend.header') <!-- Header -->
     <div class="line mb-3"></div>
     <div class="row">
-
         <section class="col-md-4 text-center mb-4 mb-md-0">
             <!-- Profil Kartı -->
             <div class="card mb-4" style="width: 100%; border-radius: 0; border: 2px solid black;">
@@ -17,7 +16,6 @@
                 @include('components.frontend.welcome.about-card')
             </div>
         </section>
-
         <section class="col-md-8 mt-md-0">
             <div class="row">
                 <!-- İş Deneyimi Kartı -->
