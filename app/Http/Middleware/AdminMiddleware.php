@@ -14,6 +14,11 @@ class AdminMiddleware
         if (!Auth::guard('admin')->check()) {
             return redirect()->route('admin.auth.login');
         }
+        // Eğer kullanıcı giriş yaptıysa ve `/admin/login` erişmeye çalışıyorsa
+        if ($request->route()->getName() === 'admin.auth.login' && Auth::guard('admin')->check()) {
+            return redirect()->route('admin.profile'); // Profil sayfasına yönlendir
+        }
+
 
         return $next($request);
     }
