@@ -51,7 +51,7 @@ class BlogController extends Controller
         $categories = BlogCategory::withCount('articles')->get();
 
         // Görünümü döndür
-        return view('components.frontend.blog.filtered-blogs', compact('blogs', 'category', 'categories', 'siteSettings'));
+        return view('frontend.blogs.filtered-blogs-page', compact('blogs', 'category', 'categories', 'siteSettings'));
     }
 
 }
