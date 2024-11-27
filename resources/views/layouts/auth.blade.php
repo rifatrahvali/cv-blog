@@ -11,7 +11,10 @@
     <title>-</title>
 </head>
 <body class="bg-light">
-    
+    <div class="container">
+        @include('layouts.partials.admin.messages') <!-- Durum Güncelleme mesajları buradan geliyor -->   
+    </div>  
+
     @yield('auth-content')
 
     <script src="{{ asset('assets/admin/js/bootstrap.bundle.min.js') }}"></script>
