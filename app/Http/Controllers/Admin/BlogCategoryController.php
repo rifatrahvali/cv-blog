@@ -12,13 +12,13 @@ class BlogCategoryController extends Controller
     public function index()
     {
         $categories = BlogCategory::with('parent')->get();
-        return view('admin.blog-category.index', compact('categories'));
+        return view('pages.pages-admin.pages_blog-category.index', compact('categories'));
     }
 
     public function create()
     {
         $categories = BlogCategory::all(); // Üst kategori seçimi için tüm kategorileri gönderiyoruz
-        return view('admin.blog-category.create-edit', compact('categories'));
+        return view('pages.pages-admin.pages_blog-category.create-edit', compact('categories'));
     }
 
     public function store(Request $request)
@@ -55,7 +55,7 @@ class BlogCategoryController extends Controller
     {
         $category = BlogCategory::findOrFail($id);
         $categories = BlogCategory::where('id', '!=', $id)->get(); // Kendisi hariç diğer kategoriler
-        return view('admin.blog-category.create-edit', compact('category', 'categories'));
+        return view('pages.pages-admin.pages_blog-category.create-edit', compact('category', 'categories'));
     }
 
     public function update(Request $request, $id)

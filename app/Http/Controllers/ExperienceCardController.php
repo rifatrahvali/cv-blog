@@ -10,13 +10,13 @@ class ExperienceCardController extends Controller
     public function index()
     {
         $experienceCards = ExperienceCard::all(); // Tüm deneyim kartlarını alıyoruz.
-        return view('admin.experience-card.index', compact('experienceCards')); // Listeleme görünümüne verileri gönderiyoruz.
+        return view('pages.pages-admin.pages_experience-card.index', compact('experienceCards')); // Listeleme görünümüne verileri gönderiyoruz.
     }
 
     // Yeni deneyim kartı ekleme formu gösterimi.
     public function create()
     {
-        return view('admin.experience-card.create-edit', ['experienceCard' => null]); // Boş bir form için görünüm döndürülüyor.
+        return view('pages.pages-admin.pages_experience-card.create-edit', ['experienceCard' => null]); // Boş bir form için görünüm döndürülüyor.
     }
 
     // Yeni deneyim kartı kaydetme işlemi.
@@ -42,7 +42,7 @@ class ExperienceCardController extends Controller
     {
         $experienceCard = ExperienceCard::findOrFail($id); // ID'ye göre deneyim kartını buluyoruz.
         // Düzenleme görünümüne deneyim kartını gönderiyoruz.
-        return view('admin.experience-card.create-edit', compact('experienceCard'));
+        return view('pages.pages-admin.pages_experience-card.create-edit', compact('experienceCard'));
     }
 
     // Mevcut deneyim kartını güncelleme işlemi.

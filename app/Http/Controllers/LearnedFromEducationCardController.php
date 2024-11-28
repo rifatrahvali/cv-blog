@@ -12,14 +12,14 @@ class LearnedFromEducationCardController extends Controller
     public function index()
     {
         $learnedFromEducationCards = LearnedFromEducationCard::with('education')->get(); // Tüm kayıtları ilişkileriyle getir.
-        return view('admin.learned-from-education-card.index', compact('learnedFromEducationCards')); // Görünümü yükle.
+        return view('pages.pages-admin.pages_learned-from-education-card.index', compact('learnedFromEducationCards')); // Görünümü yükle.
     }
 
     // Yeni kayıt ekleme formunu gösterme
     public function create()
     {
         $educationCards = EducationCard::all(); // Eğitim kartlarını dropdown için alıyoruz.
-        return view('admin.learned-from-education-card.create-edit', [
+        return view('pages.pages-admin.pages_learned-from-education-card.create-edit', [
             'learnedFromEducationCard' => null, // Boş model.
             'educationCards' => $educationCards // Eğitim kartları.
         ]);
@@ -53,7 +53,7 @@ class LearnedFromEducationCardController extends Controller
     {
         $learnedFromEducationCard = LearnedFromEducationCard::findOrFail($id); // Düzenlenecek kaydı bul.
         $educationCards = EducationCard::all(); // Eğitim kartlarını dropdown için al.
-        return view('admin.learned-from-education-card.create-edit', compact('learnedFromEducationCard', 'educationCards'));
+        return view('pages.pages-admin.pages_learned-from-education-card.create-edit', compact('learnedFromEducationCard', 'educationCards'));
     }
 
     // Mevcut kaydı güncelleme işlemi

@@ -11,13 +11,13 @@ class CourseCardController extends Controller
     public function index()
     {
         $courseCards = CourseCard::all(); // Tüm kayıtları alıyoruz
-        return view('admin.course-card.index', compact('courseCards')); // Kayıtları görünüme gönderiyoruz
+        return view('pages.pages-admin.pages_course-card.index', compact('courseCards')); // Kayıtları görünüme gönderiyoruz
     }
 
     // Yeni kayıt ekleme formu
     public function create()
     {
-        return view('admin.course-card.create-edit', ['courseCard' => null]); // Boş bir modelle formu gösteriyoruz
+        return view('pages.pages-admin.pages_course-card.create-edit', ['courseCard' => null]); // Boş bir modelle formu gösteriyoruz
     }
 
     // Yeni kayıt ekleme işlemi
@@ -43,7 +43,7 @@ class CourseCardController extends Controller
     public function edit($id)
     {
         $courseCard = CourseCard::findOrFail($id); // Mevcut kaydı buluyoruz
-        return view('admin.course-card.create-edit', compact('courseCard')); // Formu doldurulmuş modelle gönderiyoruz
+        return view('pages.pages-admin.pages_course-card.create-edit', compact('courseCard')); // Formu doldurulmuş modelle gönderiyoruz
     }
 
     // Mevcut kaydı güncelleme işlemi

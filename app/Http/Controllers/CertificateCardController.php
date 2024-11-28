@@ -11,13 +11,13 @@ class CertificateCardController extends Controller
     public function index()
     {
         $certificateCards = CertificateCard::all(); // Tüm kayıtları alıyoruz
-        return view('admin.certificate-card.index', compact('certificateCards')); // Kayıtları görünüme gönderiyoruz
+        return view('pages.pages-admin.pages_certificate-card.index', compact('certificateCards')); // Kayıtları görünüme gönderiyoruz
     }
 
     // Yeni kayıt ekleme formu
     public function create()
     {
-        return view('admin.certificate-card.create-edit', ['certificateCard' => null]); // Boş bir modelle formu gönderiyoruz
+        return view('pages.pages-admin.pages_certificate-card.create-edit', ['certificateCard' => null]); // Boş bir modelle formu gönderiyoruz
     }
 
     // Yeni kayıt ekleme işlemi
@@ -38,7 +38,7 @@ class CertificateCardController extends Controller
     public function edit($id)
     {
         $certificateCard = CertificateCard::findOrFail($id); // Mevcut kaydı buluyoruz
-        return view('admin.certificate-card.create-edit', compact('certificateCard')); // Formu doldurulmuş modelle gönderiyoruz
+        return view('pages.pages-admin.pages_certificate-card.create-edit', compact('certificateCard')); // Formu doldurulmuş modelle gönderiyoruz
     }
 
     // Mevcut kaydı güncelleme işlemi
