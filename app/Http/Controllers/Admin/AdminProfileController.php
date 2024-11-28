@@ -15,7 +15,7 @@ class AdminProfileController extends Controller
         $admin = Auth::guard('admin')->user();
         $admins = Admin::all();
 
-        return view('admin.admin-user-profile-card.au-profile-card', compact('admin', 'admins'));
+        return view('pages.pages-admin.pages_admin-user-profile-card.au-profile-card', compact('admin', 'admins'));
     }
 
     public function updatePassword(Request $request)
