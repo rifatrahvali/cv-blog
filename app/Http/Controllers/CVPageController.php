@@ -30,7 +30,7 @@ class CVPageController extends Controller
         $learnedFromExperiencesCard = LearnedFromExperiencesCard::all(); // Tüm kayıtları çekiyoruz.
         $siteSettings = SiteSetting::first();
         // Verileri değişkenler ile frontend blade'e gönderiyoruz.
-        return view('frontend.cv.cv', compact(
+        return view('pages.pages-frontend.pages_cv.cv', compact(
             'profileCard',
             'aboutCard',
             'certificateCard',
