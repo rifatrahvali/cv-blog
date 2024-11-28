@@ -12,11 +12,6 @@ class BlogController extends Controller
     {
         // Tüm blogları ilişkili kategorileriyle birlikte al
         $siteSettings = SiteSetting::first();
-        //$blogs = BlogArticle::with('category')
-        //    ->where('is_visible', true) // Sadece görünür olanları al
-        //    ->orderBy('created_at', 'desc')
-        //    ->paginate(4); // Sayfalama için 4 kayıt göster
-        // ->get();
 
         $blogs = BlogArticle::with('category')
             ->where('is_visible', true)
@@ -27,7 +22,7 @@ class BlogController extends Controller
         $categories = BlogCategory::withCount('articles')->get();
 
         // return view('components.frontend.blog.all-blogs', compact('blogs', 'categories', 'siteSettings'));
-        return view('frontend.blogs.all-blogs-page', compact('blogs', 'categories', 'siteSettings'));
+        return view('pages.pages-frontend.pages_blog.all-blogs-page', compact('blogs', 'categories', 'siteSettings'));
     }
     public function show($slug)
     {
@@ -39,7 +34,7 @@ class BlogController extends Controller
         $categories = BlogCategory::withCount('articles')->get();
 
         // return view('components.frontend.blog.blog-detail', compact('blog', 'categories', 'siteSettings'));
-        return view('frontend.blogs.blog-detail-page', compact('blog', 'categories', 'siteSettings'));
+        return view('pages.pages-frontend.pages_blog.blog-detail-page', compact('blog', 'categories', 'siteSettings'));
     }
 
     public function filterByCategory($slug)
@@ -58,7 +53,7 @@ class BlogController extends Controller
         $categories = BlogCategory::withCount('articles')->get();
 
         // Görünümü döndür
-        return view('frontend.blogs.filtered-blogs-page', compact('blogs', 'category', 'categories', 'siteSettings'));
+        return view('pages.pages-frontend.pages_blog.filtered-blogs-page', compact('blogs', 'category', 'categories', 'siteSettings'));
     }
 
 }

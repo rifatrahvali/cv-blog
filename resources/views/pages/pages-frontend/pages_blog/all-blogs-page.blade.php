@@ -12,16 +12,16 @@
                 <!-- Pagination -->
                 <div>
                     <!-- Pagination & Sayfalama -->
-                    @include('components.frontend.blog.pagination')
+                    @include('layouts.partials.frontend.pagination')
                 </div>
             </div>
-            @include('components.frontend.blog.all-blogs-card')
+            @include('cards.cards-frontend.cards_blog.all-blogs-card')
         </div>
 
         <!-- Sağ -->
         <div class="col-md-4">
             <h2 class="mb-4">Kategoriler</h2>
-            @include('components.frontend.blog.all-categories-card')
+            @include('cards.cards-frontend.cards_blog.all-categories-card')
         </div>
     </div>
 </div>
