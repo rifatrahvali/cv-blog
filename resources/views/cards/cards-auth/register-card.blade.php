@@ -1,7 +1,6 @@
-<div class="container d-flex justify-content-center mt-5">
-    <div class="card shadow-sm p-4"
+<div class="card shadow-sm p-4"
         style="width: 50%; background-color: #f8f9fa; border-radius: 12px; border: 1px solid #e3e6e9;">
-        <h2 class="text-center mb-4">Admin Kayıt YENİİİ</h2>
+        <h2 class="text-center mb-4">Admin Kayıt</h2>
 
         <form method="POST" action="{{ route('admin.auth.register') }}">
             @csrf
@@ -49,5 +48,4 @@
                 <button type="submit" class="btn btn-primary w-100">Kayıt Ol</button>
             </div>
         </form>
-    </div>
 </div>
