@@ -11,13 +11,13 @@ class AboutCardController extends Controller
     public function index()
     {
         $aboutCards = AboutCard::all();
-        return view('admin.about-card.index', compact('aboutCards'));
+        return view('pages.pages-admin.pages_about.index', compact('aboutCards'));
     }
 
     // Ekleme Formu
     public function create()
     {
-        return view('admin.about-card.create-edit', ['aboutCard' => null]);
+        return view('pages.pages-admin.pages_about.create-edit', ['aboutCard' => null]);
     }
 
     // Yeni Kayıt
@@ -36,7 +36,7 @@ class AboutCardController extends Controller
     public function edit($id)
     {
         $aboutCard = AboutCard::findOrFail($id);
-        return view('admin.about-card.create-edit', compact('aboutCard'));
+        return view('pages.pages-admin.pages_about.create-edit', compact('aboutCard'));
     }
 
     // Güncelleme
