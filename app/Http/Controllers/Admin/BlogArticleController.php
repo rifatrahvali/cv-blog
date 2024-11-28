@@ -23,13 +23,13 @@ class BlogArticleController extends Controller
 
         $articles = $query->get();
 
-        return view('pages.pages-admin.pages_blog-article.index', compact('articles', 'categories'));
+        return view('pages.pages-admin.pages_blog-article.page-index', compact('articles', 'categories'));
     }
 
     public function create()
     {
         $categories = BlogCategory::all();
-        return view('pages.pages-admin.pages_blog-article.create-edit', compact('categories'));
+        return view('pages.pages-admin.pages_blog-article.page-create-edit', compact('categories'));
     }
 
     public function store(Request $request)
@@ -56,7 +56,7 @@ class BlogArticleController extends Controller
     public function edit(BlogArticle $blogArticle)
     {
         $categories = BlogCategory::all();
-        return view('pages.pages-admin.pages_blog-article.create-edit', compact('blogArticle', 'categories'));
+        return view('pages.pages-admin.pages_blog-article.page-create-edit', compact('blogArticle', 'categories'));
     }
     public function update(Request $request, BlogArticle $blogArticle)
     {

@@ -11,7 +11,7 @@ class SiteSettingController extends Controller
     public function index()
     {
         $settings = SiteSetting::first() ?? new SiteSetting();
-        return view('pages.pages-admin.pages_site-settings.index', compact('settings'));
+        return view('pages.pages-admin.pages_site-settings.page-index', compact('settings'));
     }
 
     public function storeOrUpdate(Request $request)

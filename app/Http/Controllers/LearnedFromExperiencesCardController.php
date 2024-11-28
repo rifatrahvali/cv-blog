@@ -14,7 +14,7 @@ class LearnedFromExperiencesCardController extends Controller
         // Tüm kayıtları alıyoruz.
         $learnedFromExperiencesCards = LearnedFromExperiencesCard::with('experience')->get();
         // Görünüme verileri gönderiyoruz.
-        return view('pages.pages-admin.pages_learned-from-experiences-card.index', compact('learnedFromExperiencesCards'));
+        return view('pages.pages-admin.pages_learned-from-experiences.page-index', compact('learnedFromExperiencesCards'));
     }
 
     // Yeni kayıt ekleme formu
@@ -23,7 +23,7 @@ class LearnedFromExperiencesCardController extends Controller
         // Tüm deneyim kartlarını alıyoruz (dropdown için).
         $experienceCards = ExperienceCard::all();
         // Görünüme boş bir model ve deneyim kartlarını gönderiyoruz.
-        return view('pages.pages-admin.pages_learned-from-experiences-card.create-edit', [
+        return view('pages.pages-admin.pages_learned-from-experiences.page-create-edit', [
             'learnedFromExperiencesCard' => null,
             'experienceCards' => $experienceCards,
         ]);
@@ -56,7 +56,7 @@ class LearnedFromExperiencesCardController extends Controller
         // Dropdown için tüm deneyim kartlarını alıyoruz.
         $experienceCards = ExperienceCard::all();
         // Görünüme mevcut kayıt ve deneyim kartlarını gönderiyoruz.
-        return view('pages.pages-admin.pages_learned-from-experiences-card.create-edit', compact('learnedFromExperiencesCard', 'experienceCards'));
+        return view('pages.pages-admin.pages_learned-from-experiences.page-create-edit', compact('learnedFromExperiencesCard', 'experienceCards'));
     }
 
     // Güncelleme işlemi

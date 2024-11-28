@@ -12,20 +12,20 @@ class ProfileCardController extends Controller
     public function index()
     {
         $profileCards = ProfileCard::all();
-        return view('pages.pages-admin.pages_profile-card.index', compact('profileCards'));
+        return view('pages.pages-admin.pages_profile.page-index', compact('profileCards'));
     }
 
     // Ekleme Formu
     public function create()
     {
-        return view('pages.pages-admin.pages_profile-card.create-edit', ['profileCard' => null]);
+        return view('pages.pages-admin.pages_profile.page-create-edit', ['profileCard' => null]);
     }
 
     // Düzenleme Formu
     public function edit($id)
     {
         $profileCard = ProfileCard::findOrFail($id);
-        return view('pages.pages-admin.pages_profile-card.create-edit', compact('profileCard'));
+        return view('pages.pages-admin.pages_profile.page-create-edit', compact('profileCard'));
     }
 
     // Kayıt İşlemi

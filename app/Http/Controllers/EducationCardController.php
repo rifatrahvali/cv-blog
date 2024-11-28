@@ -11,13 +11,13 @@ class EducationCardController extends Controller
     public function index()
     {
         $educationCards = EducationCard::all(); // Tüm kayıtları alıyoruz.
-        return view('pages.pages-admin.pages_education-card.index', compact('educationCards')); // Verileri görünüme aktarıyoruz.
+        return view('pages.pages-admin.pages_education.page-index', compact('educationCards')); // Verileri görünüme aktarıyoruz.
     }
 
     // Yeni kayıt ekleme formunu göstermek için kullanılan metod.
     public function create()
     {
-        return view('pages.pages-admin.pages_education-card.create-edit', ['educationCard' => null]); // Boş bir modelle formu gönderiyoruz.
+        return view('pages.pages-admin.pages_education.page-create-edit', ['educationCard' => null]); // Boş bir modelle formu gönderiyoruz.
     }
 
     // Yeni bir eğitim kartı kaydı oluşturmak için kullanılan metod.
@@ -42,7 +42,7 @@ class EducationCardController extends Controller
     public function edit($id)
     {
         $educationCard = EducationCard::findOrFail($id); // ID ile kaydı buluyoruz.
-        return view('pages.pages-admin.pages_education-card.create-edit', compact('educationCard')); // Doldurulmuş model ile formu gönderiyoruz.
+        return view('pages.pages-admin.pages_education.page-create-edit', compact('educationCard')); // Doldurulmuş model ile formu gönderiyoruz.
     }
 
     // Mevcut bir eğitim kartı kaydını güncellemek için kullanılan metod.
