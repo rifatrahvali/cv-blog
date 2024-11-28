@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller; // Global Controller sınıfını içe aktar
 use App\Models\LearnedFromExperiencesCard; // Model sınıfını dahil ediyoruz.
 use App\Models\ExperienceCard; // Deneyim kartlarını listelemek için ekleniyor.
 use Illuminate\Http\Request; // HTTP isteklerini işlemek için kullanılır.

@@ -1,23 +1,23 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AboutCardController;
+// Admin Controllers
+use App\Http\Controllers\Admin\AboutCardController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\BlogArticleController;
 use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\SiteSettingController;
-use App\Http\Controllers\AdminAuthController;
-use App\Http\Controllers\AdminIndexController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\CertificateCardController;
-use App\Http\Controllers\CourseCardController;
-use App\Http\Controllers\CVPageController;
-use App\Http\Controllers\EducationCardController;
-use App\Http\Controllers\ExperienceCardController;
-use App\Http\Controllers\LearnedFromEducationCardController;
-use App\Http\Controllers\LearnedFromExperiencesCardController;
-use App\Http\Controllers\ProfileCardController;
-
-
+use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\Admin\AdminIndexController;
+use App\Http\Controllers\Admin\CertificateCardController;
+use App\Http\Controllers\Admin\CourseCardController;
+use App\Http\Controllers\Admin\EducationCardController;
+use App\Http\Controllers\Admin\ExperienceCardController;
+use App\Http\Controllers\Admin\LearnedFromEducationCardController;
+use App\Http\Controllers\Admin\LearnedFromExperiencesCardController;
+use App\Http\Controllers\Admin\ProfileCardController;
+// Frontend Controllers
+use App\Http\Controllers\Frontend\BlogController;
+use App\Http\Controllers\Frontend\CVPageController;
 // Public Routes (Herkesin erişebileceği rotalar)
 Route::get('/', [CVPageController::class, 'index'])->name('cv.index');
 Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');

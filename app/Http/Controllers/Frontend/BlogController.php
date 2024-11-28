@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Frontend;
+use App\Http\Controllers\Controller; // Global Controller sınıfını içe aktar
 use App\Models\BlogArticle;
 use App\Models\BlogCategory;
 use App\Models\SiteSetting;// ProfileCard Modeli dahil ediyoruz.

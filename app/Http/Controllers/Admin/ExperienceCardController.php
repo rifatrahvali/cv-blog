@@ -1,6 +1,6 @@
 <?php
-namespace App\Http\Controllers; // Laravel'in kontrolcüleri için kullanılan namespace.
-
+namespace App\Http\Controllers\Admin;// Laravel'in kontrolcüleri için kullanılan namespace.
+use App\Http\Controllers\Controller; // Global Controller sınıfını içe aktar
 use App\Models\ExperienceCard; // ExperienceCard modelini kullanıyoruz.
 use Illuminate\Http\Request; // HTTP isteklerini işlemek için gerekli sınıf.
 

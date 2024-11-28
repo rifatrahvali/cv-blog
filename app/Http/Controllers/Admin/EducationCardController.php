@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller; // Global Controller sınıfını içe aktar
 
 use App\Models\EducationCard; // Modeli dahil ediyoruz.
 use Illuminate\Http\Request; // HTTP isteklerini işlemek için kullanılıyor.

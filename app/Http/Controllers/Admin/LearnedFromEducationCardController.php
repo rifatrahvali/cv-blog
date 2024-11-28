@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller; // Global Controller sınıfını içe aktar
 
 use App\Models\LearnedFromEducationCard; // Modeli dahil ediyoruz.
 use App\Models\EducationCard; // İlişkili EducationCard modeli için dahil ediliyor.

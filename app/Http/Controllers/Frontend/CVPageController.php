@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
+use App\Http\Controllers\Controller; // Global Controller sınıfını içe aktar
 
 use App\Models\AboutCard; // AboutCard Modeli dahil ediyoruz.
 use App\Models\CertificateCard; // CertificateCard Modeli dahil ediyoruz.
