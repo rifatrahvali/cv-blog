@@ -1,6 +1,6 @@
 <div class="card shadow-sm p-4"
         style="width: 40%; background-color: #f8f9fa; border-radius: 12px; border: 1px solid #e3e6e9;">
-        <h2 class="text-center mb-4">Admin Giriş deneme</h2>
+        <h2 class="text-center mb-4">Admin Giriş</h2>
 
         <form method="POST" action="{{ route('admin.auth.login') }}" autocomplete="off">
             @csrf

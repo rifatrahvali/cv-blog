@@ -11,7 +11,7 @@ class AdminAuthController extends Controller
 {
     public function loginForm()
     {
-        return view('pages.pages-auth.login-page');
+        return view('pages.pages-auth.pages_login.login-page');
     }
 
     public function login(Request $request)
@@ -32,7 +32,7 @@ class AdminAuthController extends Controller
 
     public function registerForm()
     {
-        return view('pages.pages-auth.register-page');
+        return view('pages.pages-auth.pages_register.register-page');
     }
 
     public function register(Request $request)
