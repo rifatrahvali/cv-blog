@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+@extends('layouts.frontend-cv')
 
 @section('content')
 <div class="container">

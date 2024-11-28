@@ -9,16 +9,6 @@
             <a href="{{ route('admin.index') }}" class="btn btn-secondary">Admin Kontrol Paneli</a>
         </div>
 
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul class="mb-0">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
         <form action="{{ $aboutCard ? route('about-card.update', $aboutCard->id) : route('about-card.store') }}" method="POST">
             @csrf
             @if ($aboutCard)
