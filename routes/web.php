@@ -137,4 +137,6 @@ Route::prefix('admin')->group(function () {
 });
 
 
-
+Route::fallback(function () {
+    return response()->view('errors.404', [], 404);
+});
