@@ -138,5 +138,8 @@ Route::prefix('admin')->group(function () {
 
 
 Route::fallback(function () {
-    return response()->view('errors.404', [], 404);
+    return response()->view([
+        'pages.pages-errors.404', [], 404,
+        'pages.pages-errors.403', [], 403,
+    ]);
 });

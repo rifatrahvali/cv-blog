@@ -1,8 +1,3 @@
-@extends('layouts.errors')
-
-@section('title', '403 - Yetkisiz Erişim')
-
-@section('content')
 <div class="text-center">
 
     <!-- Hata Başlığı -->
@@ -18,4 +13,3 @@
         Geri Dön
     </a>
 </div>
-@endsection
