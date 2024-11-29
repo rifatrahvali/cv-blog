@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support</title>
+
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/styles.css') }}">
+
+</head>
+
+<body class="bg-light">
+    <div id="app">
+        @yield('frontend-support-content')
+    </div>
+
+    <script src="{{ asset('assets/frontend/js/bootstrap.bundle.min.js') }}"></script>
+
+</body>
+
+</html>

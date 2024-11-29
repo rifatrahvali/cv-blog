@@ -11,7 +11,7 @@
             <div class="d-inline-block">
                 <a href="{{ route('cv.index') }}" class="btn btn-outline-dark mx-2 pages" style="--bs-btn-border-radius: 0; border:2px solid black;">CV</a>
                 <a href="{{ route('blogs.index') }}" class="btn btn-outline-dark mx-2 pages" style="--bs-btn-border-radius: 0; border:2px solid black;">Yazılar</a>
-                <a href="#" class="btn btn-outline-dark mx-2 pages" style="--bs-btn-border-radius: 0; border:2px solid black;">Destek</a>
+                <a href="{{ route('support.index') }}" class="btn btn-outline-dark mx-2 pages" style="--bs-btn-border-radius: 0; border:2px solid black;">Destek</a>
                 <a href="#" class="btn btn-outline-dark mx-2 pages" style="--bs-btn-border-radius: 0; border:2px solid black;">Referans</a>
             </div>
         </div>

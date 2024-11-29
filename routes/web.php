@@ -18,12 +18,18 @@ use App\Http\Controllers\Admin\ProfileCardController;
 // Frontend Controllers
 use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\CVPageController;
+
+use App\Models\SiteSetting;
 // Public Routes (Herkesin erişebileceği rotalar)
 Route::get('/', [CVPageController::class, 'index'])->name('cv.index');
 Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
 Route::get('/blogs/{slug}', [BlogController::class, 'show'])->name('blogs.show');
 Route::get('/blogs/category/{slug}', [BlogController::class, 'filterByCategory'])->name('blogs.byCategory');
 
+Route::get('/support', function () {
+    $siteSettings = SiteSetting::first();
+    return view('pages.pages-frontend.pages_support.support-page',compact('siteSettings'));
+})->name('support.index');
 
 // Admin Routes
 Route::prefix('admin')->group(function () {
