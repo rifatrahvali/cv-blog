@@ -14,17 +14,23 @@ class AdminAuthController extends Controller
     {
         return view('pages.pages-auth.pages_login.login-page');
     }
-
     public function login(Request $request)
     {
         $credentials = $request->validate([
             'username' => 'required|string|max:255',
             'password' => 'required|string|min:8',
         ]);
-        
 
+        // Giriş kontrolü
         if (Auth::guard('admin')->attempt($credentials, $request->remember)) {
             $request->session()->regenerate();
+
+            // Rol kontrolü: Kullanıcı admin değilse oturumu kapat ve hata döndür
+            if (Auth::guard('admin')->user()->role !== 'admin') {
+                Auth::guard('admin')->logout();
+                return back()->withErrors(['error' => 'Bu panele erişim yetkiniz yok.']);
+            }
+
             return redirect()->intended(route('admin.index'));
         }
 
@@ -64,7 +70,7 @@ class AdminAuthController extends Controller
         Auth::guard('admin')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        
+
         return redirect()->route('admin.auth.login');
     }
 }

@@ -9,6 +9,7 @@ class Admin extends Authenticatable
 {
     use Notifiable;
 
+     // Fillable alanlar: Kitle atamaya izin verilen sütunlar
     protected $fillable = [
         'name',
         'surname',
@@ -18,6 +19,7 @@ class Admin extends Authenticatable
         'role',
     ];
 
+    // Şifre ve remember_token gibi hassas verilerin gizlenmesi
     protected $hidden = [
         'password',
         'remember_token',

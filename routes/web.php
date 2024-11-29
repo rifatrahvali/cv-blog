@@ -27,13 +27,13 @@ Route::get('/blogs/category/{slug}', [BlogController::class, 'filterByCategory']
 
 // Admin Routes
 Route::prefix('admin')->group(function () {
-    // Giriş yapmamış adminler için izin verilen rotalar
+    // misafir ve adminler için izin verilen rotalar
     Route::middleware('guest:admin')->group(function () {
         Route::get('/login', [AdminAuthController::class, 'loginForm'])->name('admin.auth.login');
         Route::post('/login', [AdminAuthController::class, 'login']);
     });
 
-    // Giriş yapmış adminler için rotalar
+    // sadece adminler için rotalar
     Route::middleware('admin')->group(function () {
         Route::post('/logout', [AdminAuthController::class, 'logout'])->name('admin.auth.logout');
 
