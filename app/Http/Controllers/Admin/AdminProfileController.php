@@ -54,10 +54,17 @@ class AdminProfileController extends Controller
     public function updateRole(Request $request, $id)
     {
         $admin = Admin::findOrFail($id);
+    
+        // Kullanıcının rolünü güncelle
         $admin->role = $request->has('role') ? 'admin' : 'user';
         $admin->save();
-
-        return redirect()->route('admin.admin-user-profile-card.au-profile-card')->with('success', 'Admin role updated successfully.');
+    
+        // Eğer kullanıcı şu an online ise, oturumunu zorla sonlandır
+        if (Auth::guard('admin')->user()->id !== $admin->id && $admin->isOnline()) {
+            session()->put('forced_logout', true); // Oturumu sonlandır işareti koy
+        }
+    
+        return redirect()->back()->with('success', 'Kullanıcının rolü güncellendi ve gerekirse oturumu sonlandırıldı.');
     }
     public function deleteAdmin($id)
     {

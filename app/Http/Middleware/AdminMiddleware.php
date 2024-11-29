@@ -24,6 +24,15 @@ class AdminMiddleware
         if ($request->route()->getName() === 'admin.auth.login' && Auth::guard('admin')->check()) {
             return redirect()->route('admin.index'); // Ana sayfaya yönlendir
         }
+        // Kullanıcının oturum anahtarını kontrol et
+        if (session('forced_logout')) {
+            // Kullanıcı oturumunu kapat ve login sayfasına yönlendir
+            Auth::guard('admin')->logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+            
+            return redirect()->route('admin.auth.login')->with('error', 'Oturumunuz sonlandırıldı.');
+        }
 
         return $next($request);
     }

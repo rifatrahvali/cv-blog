@@ -31,14 +31,14 @@ Route::prefix('admin')->group(function () {
     Route::middleware('guest:admin')->group(function () {
         Route::get('/login', [AdminAuthController::class, 'loginForm'])->name('admin.auth.login');
         Route::post('/login', [AdminAuthController::class, 'login']);
+
+        Route::get('/register', [AdminAuthController::class, 'registerForm'])->name('admin.auth.register');
+        Route::post('/register', [AdminAuthController::class, 'register']);
     });
 
     // sadece adminler için rotalar
     Route::middleware('admin')->group(function () {
         Route::post('/logout', [AdminAuthController::class, 'logout'])->name('admin.auth.logout');
-
-	    Route::get('/register', [AdminAuthController::class, 'registerForm'])->name('admin.auth.register');
-        Route::post('/register', [AdminAuthController::class, 'register']);
 
         // Admin Ana Panel
         Route::get('/', [AdminIndexController::class, 'index'])->name('admin.index');

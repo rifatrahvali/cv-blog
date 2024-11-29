@@ -9,7 +9,7 @@ class Admin extends Authenticatable
 {
     use Notifiable;
 
-     // Fillable alanlar: Kitle atamaya izin verilen sütunlar
+    // Fillable alanlar: Kitle atamaya izin verilen sütunlar
     protected $fillable = [
         'name',
         'surname',
@@ -28,5 +28,11 @@ class Admin extends Authenticatable
     public function isAdmin()
     {
         return $this->role === 'admin';
+    }
+    // App\Models\Admin.php
+    public function isOnline()
+    {
+        // Kullanıcının oturumunun olup olmadığını kontrol eder
+        return session()->has('admin_' . $this->id);
     }
 }

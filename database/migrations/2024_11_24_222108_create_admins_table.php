@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('username')->unique(); // kullanıcı adı alanı, benzersiz olmalı
             $table->string('password'); // Şifre alanı
             $table->rememberToken();
-            $table->enum('role', ['user', 'admin'])->default('user');
+            $table->enum('role', ['user', 'admin'])->default('admin');
             $table->timestamps();
         });
     }
