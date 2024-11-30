@@ -6,7 +6,7 @@
         tasarrufu sağlayacaktır.
     </p>
 
-    <form action="" method="POST" class="support-form">
+    <form action="{{ route('support.store') }}" method="POST" class="support-form">
         @csrf
         <!-- Proje Detayları -->
         <h2 class="mt-5">Proje Detayları</h2>

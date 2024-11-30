@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\Admin\SupportFormListController;
 use Illuminate\Support\Facades\Route;
 // Admin Controllers
 use App\Http\Controllers\Admin\AboutCardController;
@@ -15,9 +17,11 @@ use App\Http\Controllers\Admin\ExperienceCardController;
 use App\Http\Controllers\Admin\LearnedFromEducationCardController;
 use App\Http\Controllers\Admin\LearnedFromExperiencesCardController;
 use App\Http\Controllers\Admin\ProfileCardController;
+
 // Frontend Controllers
 use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\CVPageController;
+use App\Http\Controllers\Frontend\SupportController;
 
 use App\Models\SiteSetting;
 // Public Routes (Herkesin erişebileceği rotalar)
@@ -26,10 +30,11 @@ Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
 Route::get('/blogs/{slug}', [BlogController::class, 'show'])->name('blogs.show');
 Route::get('/blogs/category/{slug}', [BlogController::class, 'filterByCategory'])->name('blogs.byCategory');
 
-Route::get('/support', function () {
-    $siteSettings = SiteSetting::first();
-    return view('pages.pages-frontend.pages_support.support-page',compact('siteSettings'));
-})->name('support.index');
+// Support rotaları
+Route::get('/support', [SupportController::class, 'index'])->name('support.index');
+Route::post('/support', [SupportController::class, 'store'])->name('support.store');
+Route::get('/support-forms/{id}', [SupportFormListController::class, 'show'])->name('admin.support-forms.show');
+
 
 // Admin Routes
 Route::prefix('admin')->group(function () {
@@ -48,6 +53,9 @@ Route::prefix('admin')->group(function () {
 
         // Admin Ana Panel
         Route::get('/', [AdminIndexController::class, 'index'])->name('admin.index');
+
+        // Destek formunu dolduranlar
+        Route::get('/support-forms', [SupportFormListController::class, 'index'])->name('admin.support-forms.index');
 
         // Admin Profil Yönetimi
         Route::get('/profile', [AdminProfileController::class, 'profile'])->name('admin.profile');
@@ -108,13 +116,13 @@ Route::prefix('admin')->group(function () {
         Route::put('/education-card/{id}', [EducationCardController::class, 'update'])->name('education-card.update');
         Route::delete('/education-card/{id}', [EducationCardController::class, 'destroy'])->name('education-card.destroy');
 
-       // Learned From Education Kartı
-       Route::get('/learned-from-education-card', [LearnedFromEducationCardController::class, 'index'])->name('learned-from-education-card.index');
-       Route::get('/learned-from-education-card/create', [LearnedFromEducationCardController::class, 'create'])->name('learned-from-education-card.create');
-       Route::post('/learned-from-education-card', [LearnedFromEducationCardController::class, 'store'])->name('learned-from-education-card.store');
-       Route::get('/learned-from-education-card/{id}/edit', [LearnedFromEducationCardController::class, 'edit'])->name('learned-from-education-card.edit');
-       Route::put('/learned-from-education-card/{id}', [LearnedFromEducationCardController::class, 'update'])->name('learned-from-education-card.update');
-       Route::delete('/learned-from-education-card/{id}', [LearnedFromEducationCardController::class, 'destroy'])->name('learned-from-education-card.destroy');
+        // Learned From Education Kartı
+        Route::get('/learned-from-education-card', [LearnedFromEducationCardController::class, 'index'])->name('learned-from-education-card.index');
+        Route::get('/learned-from-education-card/create', [LearnedFromEducationCardController::class, 'create'])->name('learned-from-education-card.create');
+        Route::post('/learned-from-education-card', [LearnedFromEducationCardController::class, 'store'])->name('learned-from-education-card.store');
+        Route::get('/learned-from-education-card/{id}/edit', [LearnedFromEducationCardController::class, 'edit'])->name('learned-from-education-card.edit');
+        Route::put('/learned-from-education-card/{id}', [LearnedFromEducationCardController::class, 'update'])->name('learned-from-education-card.update');
+        Route::delete('/learned-from-education-card/{id}', [LearnedFromEducationCardController::class, 'destroy'])->name('learned-from-education-card.destroy');
 
         // Learned From Experiences Kartı
         Route::get('/learned-from-experiences-card', [LearnedFromExperiencesCardController::class, 'index'])->name('learned-from-experiences-card.index');
@@ -124,13 +132,13 @@ Route::prefix('admin')->group(function () {
         Route::put('/learned-from-experiences-card/{id}', [LearnedFromExperiencesCardController::class, 'update'])->name('learned-from-experiences-card.update');
         Route::delete('/learned-from-experiences-card/{id}', [LearnedFromExperiencesCardController::class, 'destroy'])->name('learned-from-experiences-card.destroy');
 
-	// Course Card Routes
-       Route::get('/course-card', [CourseCardController::class, 'index'])->name('course-card.index'); // Listeleme rotası
-       Route::get('/course-card/create', [CourseCardController::class, 'create'])->name('course-card.create'); // Yeni kayıt ekleme formu rotası
-       Route::post('/course-card', [CourseCardController::class, 'store'])->name('course-card.store'); // Yeni kayıt ekleme rotası
-       Route::get('/course-card/{id}/edit', [CourseCardController::class, 'edit'])->name('course-card.edit'); // Düzenleme formu rotası
-       Route::put('/course-card/{id}', [CourseCardController::class, 'update'])->name('course-card.update'); // Güncelleme rotası
-       Route::delete('/course-card/{id}', [CourseCardController::class, 'destroy'])->name('course-card.destroy'); // Silme rotası
+        // Course Card Routes
+        Route::get('/course-card', [CourseCardController::class, 'index'])->name('course-card.index'); // Listeleme rotası
+        Route::get('/course-card/create', [CourseCardController::class, 'create'])->name('course-card.create'); // Yeni kayıt ekleme formu rotası
+        Route::post('/course-card', [CourseCardController::class, 'store'])->name('course-card.store'); // Yeni kayıt ekleme rotası
+        Route::get('/course-card/{id}/edit', [CourseCardController::class, 'edit'])->name('course-card.edit'); // Düzenleme formu rotası
+        Route::put('/course-card/{id}', [CourseCardController::class, 'update'])->name('course-card.update'); // Güncelleme rotası
+        Route::delete('/course-card/{id}', [CourseCardController::class, 'destroy'])->name('course-card.destroy'); // Silme rotası
 
         // Sertifika Kartı Yönetimi
         Route::get('/certificate-card', [CertificateCardController::class, 'index'])->name('certificate-card.index');
@@ -145,7 +153,11 @@ Route::prefix('admin')->group(function () {
 
 Route::fallback(function () {
     return response()->view([
-        'pages.pages-errors.404', [], 404,
-        'pages.pages-errors.403', [], 403,
+        'pages.pages-errors.404',
+        [],
+        404,
+        'pages.pages-errors.403',
+        [],
+        403,
     ]);
 });

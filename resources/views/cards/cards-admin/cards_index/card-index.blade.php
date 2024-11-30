@@ -13,6 +13,16 @@
         <div class="col-md-4 col-sm-6">
             <div class="card text-center h-100">
                 <div class="card-body">
+                    <h5 class="card-title">Web Site Destek Talepleri</h5>
+                    <p class="card-text">Web siteler için oluşturulan teklif formlarını listeler..</p>
+                    <a href="{{ route('admin.support-forms.index') }}" class="btn btn-primary">Web Site Teklifleri</a>
+                </div>
+            </div>
+        </div>
+        <!-- Kart 1 -->
+        <div class="col-md-4 col-sm-6">
+            <div class="card text-center h-100">
+                <div class="card-body">
                     <h5 class="card-title">Blog Kategori İsim Kartı</h5>
                     <p class="card-text">Blog Kategorileri bilgilerinin tutulduğu kart alanıdır.</p>
                     <a href="{{ route('admin.blog-category.index') }}" class="btn btn-primary">Blog Kategorileri Kartına Git</a>
