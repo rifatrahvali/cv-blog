@@ -1,6 +1,16 @@
 <div class="row gy-4">
-        <!-- Kart 1 -->
-        <div class="col-md-4 col-sm-6">
+        <!-- Kart -->
+        <div class="col-md-3 col-sm-6">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Yetkili Davet Kartı</h5>
+                    <p class="card-text">Yetkili bilgilerinin tutulduğu kart alanıdır.</p>
+                    <a href="{{route('admin.invite.create')}}" class="btn btn-primary">Yetkili Davet Kartına Git</a>
+                </div>
+            </div>
+        </div>
+        <!-- Kart -->
+        <div class="col-md-3 col-sm-6">
             <div class="card text-center h-100">
                 <div class="card-body">
                     <h5 class="card-title">Yetkili Kartı</h5>
@@ -9,8 +19,8 @@
                 </div>
             </div>
         </div>
-        <!-- Kart 1 -->
-        <div class="col-md-4 col-sm-6">
+        <!-- Kart -->
+        <div class="col-md-3 col-sm-6">
             <div class="card text-center h-100">
                 <div class="card-body">
                     <h5 class="card-title">Web Site Destek Talepleri</h5>
@@ -19,8 +29,8 @@
                 </div>
             </div>
         </div>
-        <!-- Kart 1 -->
-        <div class="col-md-4 col-sm-6">
+        <!-- Kart -->
+        <div class="col-md-3 col-sm-6">
             <div class="card text-center h-100">
                 <div class="card-body">
                     <h5 class="card-title">Blog Kategori İsim Kartı</h5>
@@ -29,8 +39,8 @@
                 </div>
             </div>
         </div>
-        <!-- Kart 1 -->
-        <div class="col-md-4 col-sm-6">
+        <!-- Kart -->
+        <div class="col-md-3 col-sm-6">
             <div class="card text-center h-100">
                 <div class="card-body">
                     <h5 class="card-title">Blog Makalelerin Listesi Kartı</h5>
@@ -39,8 +49,8 @@
                 </div>
             </div>
         </div>
-        <!-- Kart 1 -->
-        <div class="col-md-4 col-sm-6">
+        <!-- Kart -->
+        <div class="col-md-3 col-sm-6">
             <div class="card text-center h-100">
                 <div class="card-body">
                     <h5 class="card-title">Profil Kartı</h5>
@@ -49,8 +59,8 @@
                 </div>
             </div>
         </div>
-        <!-- Kart 2 -->
-        <div class="col-md-4 col-sm-6">
+        <!-- Kart -->
+        <div class="col-md-3 col-sm-6">
             <div class="card text-center h-100">
                 <div class="card-body">
                     <h5 class="card-title">Hakkımda Kartı</h5>
@@ -59,8 +69,8 @@
                 </div>
             </div>
         </div>
-        <!-- Kart 3 -->
-        <div class="col-md-4 col-sm-6">
+        <!-- Kart -->
+        <div class="col-md-3 col-sm-6">
             <div class="card text-center h-100">
                 <div class="card-body">
                     <h5 class="card-title">Şirket Deneyimi Kartı</h5>
@@ -69,8 +79,8 @@
                 </div>
             </div>
         </div>
-        <!-- Kart 4 -->
-        <div class="col-md-4 col-sm-6">
+        <!-- Kart -->
+        <div class="col-md-3 col-sm-6">
             <div class="card text-center h-100">
                 <div class="card-body">
                     <h5 class="card-title">Şirket İçi Çalışma Deneyimi Kartı</h5>
@@ -79,8 +89,8 @@
                 </div>
             </div>
         </div>
-        <!-- Kart 5 -->
-        <div class="col-md-4 col-sm-6">
+        <!-- Kart -->
+        <div class="col-md-3 col-sm-6">
             <div class="card text-center h-100">
                 <div class="card-body">
                     <h5 class="card-title">Eğitim Bilgisi</h5>
@@ -89,8 +99,8 @@
                 </div>
             </div>
         </div>
-        <!-- Kart 6 -->
-        <div class="col-md-4 col-sm-6">
+        <!-- Kart -->
+        <div class="col-md-3 col-sm-6">
             <div class="card text-center h-100">
                 <div class="card-body">
                     <h5 class="card-title">Eğitim Süresindeki Deneyimleri</h5>
@@ -99,8 +109,8 @@
                 </div>
             </div>
         </div>
-        <!-- Kart 7 -->
-        <div class="col-md-4 col-sm-6">
+        <!-- Kart -->
+        <div class="col-md-3 col-sm-6">
             <div class="card text-center h-100">
                 <div class="card-body">
                     <h5 class="card-title">Kurslar Kartı</h5>
@@ -109,8 +119,8 @@
                 </div>
             </div>
         </div>
-        <!-- Kart 8 -->
-        <div class="col-md-4 col-sm-6">
+        <!-- Kart -->
+        <div class="col-md-3 col-sm-6">
             <div class="card text-center h-100">
                 <div class="card-body">
                     <h5 class="card-title">Sertifika Kartı</h5>
@@ -119,8 +129,8 @@
                 </div>
             </div>
         </div>
-        <!-- Kart 8 -->
-        <div class="col-md-4 col-sm-6">
+        <!-- Kart -->
+        <div class="col-md-3 col-sm-6">
             <div class="card text-center h-100">
                 <div class="card-body">
                     <h5 class="card-title">Site Ayarları Kartı</h5>

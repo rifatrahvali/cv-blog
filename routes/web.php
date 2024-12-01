@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\SupportFormListController;
 use Illuminate\Support\Facades\Route;
 // Admin Controllers
 use App\Http\Controllers\Admin\AboutCardController;
@@ -17,7 +16,8 @@ use App\Http\Controllers\Admin\ExperienceCardController;
 use App\Http\Controllers\Admin\LearnedFromEducationCardController;
 use App\Http\Controllers\Admin\LearnedFromExperiencesCardController;
 use App\Http\Controllers\Admin\ProfileCardController;
-
+use App\Http\Controllers\Admin\SupportFormListController;
+use App\Http\Controllers\Admin\AdminInviteController;
 // Frontend Controllers
 use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\CVPageController;
@@ -36,6 +36,7 @@ Route::post('/support', [SupportController::class, 'store'])->name('support.stor
 Route::get('/support-forms/{id}', [SupportFormListController::class, 'show'])->name('admin.support-forms.show');
 
 
+
 // Admin Routes
 Route::prefix('admin')->group(function () {
     // misafir ve adminler için izin verilen rotalar
@@ -47,6 +48,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/register', [AdminAuthController::class, 'register']);
     });
 
+
     // sadece adminler için rotalar
     Route::middleware('admin')->group(function () {
         Route::post('/logout', [AdminAuthController::class, 'logout'])->name('admin.auth.logout');
@@ -56,6 +58,9 @@ Route::prefix('admin')->group(function () {
 
         // Destek formunu dolduranlar
         Route::get('/support-forms', [SupportFormListController::class, 'index'])->name('admin.support-forms.index');
+
+        Route::get('/invite', [AdminInviteController::class, 'create'])->name('admin.invite.create');
+        Route::post('/invite', [AdminInviteController::class, 'store'])->name('admin.invite.store');
 
         // Admin Profil Yönetimi
         Route::get('/profile', [AdminProfileController::class, 'profile'])->name('admin.profile');
