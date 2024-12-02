@@ -9,10 +9,11 @@
         <!-- Butonlar -->
         <div class="col-12 text-center">
             <div class="d-inline-block">
-                <a href="{{ route('cv.index') }}" class="btn btn-outline-dark mx-2 pages" style="--bs-btn-border-radius: 0; border:2px solid black;">CV</a>
-                <a href="{{ route('blogs.index') }}" class="btn btn-outline-dark mx-2 pages" style="--bs-btn-border-radius: 0; border:2px solid black;">Yazılar</a>
-                <a href="{{ route('support.index') }}" class="btn btn-outline-dark mx-2 pages" style="--bs-btn-border-radius: 0; border:2px solid black;">Destek</a>
-                <a href="#" class="btn btn-outline-dark mx-2 pages" style="--bs-btn-border-radius: 0; border:2px solid black;">Referans</a>
+                <a href="{{ route('cv.index') }}" class="btn btn-outline-dark pages" style="--bs-btn-border-radius: 0; border:2px solid black;">CV</a>
+                <a href="{{ route('blogs.index') }}" class="btn btn-outline-dark pages" style="--bs-btn-border-radius: 0; border:2px solid black;">Yazılar</a>
+                <a href="#" class="btn btn-outline-dark pages" style="--bs-btn-border-radius: 0; border:2px solid black;">Galeri</a>
+                <a href="{{ route('support.index') }}" class="btn btn-outline-dark pages" style="--bs-btn-border-radius: 0; border:2px solid black;">Destek</a>
+                <a href="#" class="btn btn-outline-dark pages" style="--bs-btn-border-radius: 0; border:2px solid black;">Referans</a>
             </div>
         </div>
     </div>
